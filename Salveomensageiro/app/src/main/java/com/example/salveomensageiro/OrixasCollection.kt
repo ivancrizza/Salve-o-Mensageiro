@@ -15,14 +15,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.salveomensageiro.data.Orixas
+import com.example.salveomensageiro.data.orixas
 
 
 @Composable
-private fun OrixaCollectionList(
+fun OrixaCollectionList(
     orixasList: List<Orixas>,
     onOrixasClick: (Long) -> Unit,
     modifier: Modifier = Modifier
@@ -73,8 +75,7 @@ fun OrixaImage(
             .crossfade(true)
             .build(),
         contentDescription = contentDescription,
-        modifier = modifier.fillMaxSize(),
-        contentScale = ContentScale.Crop
+        modifier = modifier.fillMaxSize()
     )
 }
 
@@ -90,4 +91,11 @@ private fun OrixasLazyList(
         }
     }
 
+}
+
+@Preview
+@Composable
+fun ItemOrixasPreview() {
+    val orixasList = orixas.first()
+    ItemOrixa(orixa = orixasList, onSnackClick = { })
 }
