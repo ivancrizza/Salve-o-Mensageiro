@@ -95,3 +95,7 @@ val orixas = listOf(
         "https://ocandomble.files.wordpress.com/2008/08/iroko_c1.jpg"
     )
 )
+
+object OrixasRepository {
+    fun getOrixas(): List<Orixas> = orixas
+}
