@@ -5,92 +5,92 @@ import androidx.compose.runtime.Immutable
 
 @Immutable
 data class Orixas(
-    val id: Int,
+    val id: Long,
     val name: String,
     val imageUrl: String
 )
 
 val orixas = listOf(
     Orixas(
-        1,
+        1L,
         "Nanã",
         "https://ocandomble.files.wordpress.com/2008/04/nana.jpg"
 
     ),
     Orixas(
-        2,
+        2L,
         "Omolú",
         "https://ocandomble.files.wordpress.com/2008/04/omolu1.jpg"
     ),
     Orixas(
-        3,
+        3L,
         "Oxumaré",
         "https://ocandomble.files.wordpress.com/2008/04/oxumare.jpg"
     ),
     Orixas(
-        4,
+        4L,
         "Oxalá",
         "https://ocandomble.files.wordpress.com/2008/05/oxalalufa.jpg"
     ),
 
     Orixas(
-        5,
+        5L,
         "Exu",
         "https://ocandomble.files.wordpress.com/2008/05/exu1.jpg"
     ),
     Orixas(
-        6,
+        6L,
         "Ogum",
         "https://ocandomble.files.wordpress.com/2008/05/ogum.jpg"
 
     ),
     Orixas(
-        7,
+        7L,
         "Oxóssi",
         "https://ocandomble.files.wordpress.com/2008/05/oxossi.jpg"
     ),
     Orixas(
-        8,
+        8L,
         "Yemanjá",
         "https://ocandomble.files.wordpress.com/2008/05/iemanja.jpg"
     ),
     Orixas(
-        9,
+        9L,
         "Iansã",
         "https://ocandomble.files.wordpress.com/2008/05/oya.jpg"
     ),
     Orixas(
-        10,
+        10L,
         "Oxun",
         "Pendente, preciso resolver essa questão"
     ),
     Orixas(
-        11,
+        11L,
         "Ewá",
         "https://ocandomble.files.wordpress.com/2008/06/ewa.jpg"
     ),
     Orixas(
-        12,
+        12L,
         "Xangô",
         "https://ocandomble.files.wordpress.com/2008/07/xango.jpg"
     ),
     Orixas(
-        13,
+        13L,
         "Logun Edé",
         "https://ocandomble.files.wordpress.com/2008/08/logunede1.jpg"
     ),
     Orixas(
-        14,
+        14L,
         "Ossain",
         "https://ocandomble.files.wordpress.com/2008/08/logunede1.jpg"
     ),
     Orixas(
-        15,
+        15L,
         "Ibeji",
         "https://ocandomble.files.wordpress.com/2008/08/ibeji1.jpg"
     ),
     Orixas(
-        16,
+        16L,
         "Irôko",
         "https://ocandomble.files.wordpress.com/2008/08/iroko_c1.jpg"
     )
