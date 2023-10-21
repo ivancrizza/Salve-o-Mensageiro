@@ -1,101 +1,36 @@
 package com.example.salveomensageiro.data
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.runtime.Immutable
+import com.example.salveomensageiro.R
 
 
 @Immutable
 data class Orixas(
-    val id: Long,
-    val name: String,
-    val imageUrl: String
+    @StringRes val name: Int,
+    @DrawableRes val imageUrl: Int
 )
+private val orixas = listOf(
+    R.drawable.nana to R.string.nana,
+    R.drawable.omolu1 to R.string.omolu,
+    R.drawable.oxumare to R.string.oxumare,
+    R.drawable.oxalalufa to R.string.oxala,
+    R.drawable.exu1 to R.string.exu,
+    R.drawable.ogum to R.string.ogum,
+    R.drawable.oxossi to R.string.oxossi,
+    R.drawable.iemanja to R.string.yemanja,
+    R.drawable.oya to R.string.iansa,
+    R.drawable.oxum to R.string.oxun,
+    R.drawable.oba to R.string.oba,
+    R.drawable.ewa to R.string.ewa,
+    R.drawable.xango to R.string.xango,
+    R.drawable.logunede1 to R.string.logunEde,
+    R.drawable.ossaim1 to R.string.ossain,
+    R.drawable.ibeji1 to R.string.ibeji,
+    R.drawable.iroko_c1 to R.string.iroko).map { DrawableStringPair(it.first, it.second) }
 
-val orixas = listOf(
-    Orixas(
-        1L,
-        "Nanã",
-        "https://ocandomble.files.wordpress.com/2008/04/nana.jpg"
-
-    ),
-    Orixas(
-        2L,
-        "Omolú",
-        "https://ocandomble.files.wordpress.com/2008/04/omolu1.jpg"
-    ),
-    Orixas(
-        3L,
-        "Oxumaré",
-        "https://ocandomble.files.wordpress.com/2008/04/oxumare.jpg"
-    ),
-    Orixas(
-        4L,
-        "Oxalá",
-        "https://ocandomble.files.wordpress.com/2008/05/oxalalufa.jpg"
-    ),
-
-    Orixas(
-        5L,
-        "Exu",
-        "https://ocandomble.files.wordpress.com/2008/05/exu1.jpg"
-    ),
-    Orixas(
-        6L,
-        "Ogum",
-        "https://ocandomble.files.wordpress.com/2008/05/ogum.jpg"
-
-    ),
-    Orixas(
-        7L,
-        "Oxóssi",
-        "https://ocandomble.files.wordpress.com/2008/05/oxossi.jpg"
-    ),
-    Orixas(
-        8L,
-        "Yemanjá",
-        "https://ocandomble.files.wordpress.com/2008/05/iemanja.jpg"
-    ),
-    Orixas(
-        9L,
-        "Iansã",
-        "https://ocandomble.files.wordpress.com/2008/05/oya.jpg"
-    ),
-    Orixas(
-        10L,
-        "Oxun",
-        "Pendente, preciso resolver essa questão"
-    ),
-    Orixas(
-        11L,
-        "Ewá",
-        "https://ocandomble.files.wordpress.com/2008/06/ewa.jpg"
-    ),
-    Orixas(
-        12L,
-        "Xangô",
-        "https://ocandomble.files.wordpress.com/2008/07/xango.jpg"
-    ),
-    Orixas(
-        13L,
-        "Logun Edé",
-        "https://ocandomble.files.wordpress.com/2008/08/logunede1.jpg"
-    ),
-    Orixas(
-        14L,
-        "Ossain",
-        "https://ocandomble.files.wordpress.com/2008/08/logunede1.jpg"
-    ),
-    Orixas(
-        15L,
-        "Ibeji",
-        "https://ocandomble.files.wordpress.com/2008/08/ibeji1.jpg"
-    ),
-    Orixas(
-        16L,
-        "Irôko",
-        "https://ocandomble.files.wordpress.com/2008/08/iroko_c1.jpg"
-    )
+private data class DrawableStringPair(
+    @DrawableRes val drawable: Int,
+    @StringRes val text: Int
 )
-
-object OrixasRepository {
-    fun getOrixas(): List<Orixas> = orixas
-}

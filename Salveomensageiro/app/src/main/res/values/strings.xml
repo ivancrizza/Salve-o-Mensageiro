@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Salve o mensageiro</string>
+    <string name="nana">Nanã</string>
+    <string name="omolu">Omolú</string>
+    <string name="oxumare">Oxumaré</string>
+    <string name="oxala">Oxalá</string>
+    <string name="exu">Exu</string>
+    <string name="ogum">Ogum</string>
+    <string name="oxossi">Oxóssi</string>
+    <string name="yemanja">Yemanjá</string>
+    <string name="iansa">Iansã</string>
+    <string name="oxun">Oxun</string>
+    <string name="ewa">Ewá</string>
+    <string name="oba">Obá</string>
+    <string name="xango">Xangô</string>
+    <string name="logunEde">Logun Edé</string>
+    <string name="ossain">Ossain</string>
+    <string name="ibeji">Ibeji</string>
+    <string name="iroko">Irôko</string>
 </resources>
