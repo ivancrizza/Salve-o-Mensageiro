@@ -11,7 +11,7 @@ data class Orixas(
     @StringRes val name: Int,
     @DrawableRes val imageUrl: Int
 )
-private val orixas = listOf(
+ val orixas = listOf(
     R.drawable.nana to R.string.nana,
     R.drawable.omolu1 to R.string.omolu,
     R.drawable.oxumare to R.string.oxumare,
@@ -30,7 +30,7 @@ private val orixas = listOf(
     R.drawable.ibeji1 to R.string.ibeji,
     R.drawable.iroko_c1 to R.string.iroko).map { DrawableStringPair(it.first, it.second) }
 
-private data class DrawableStringPair(
+data class DrawableStringPair(
     @DrawableRes val drawable: Int,
     @StringRes val text: Int
 )
