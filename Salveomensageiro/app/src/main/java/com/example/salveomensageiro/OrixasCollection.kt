@@ -132,27 +132,27 @@ fun PreviewHome() {
     }
 }
 
-//@Preview
-//@Composable
-//fun ItemOrixasPreview() {
-//    Card(
-//        modifier = Modifier
-//    ) {
-//        Column(
-//            modifier = Modifier
-//                .padding(8.dp)
-//        ) {
-//            OrixaImage(
-//                imageUrl = R.drawable.nana,
-//                contentDescription = null,
-//                modifier = Modifier.size(120.dp)
-//            )
-//            Text(
-//                text = stringResource(R.string.nana),
-//                style = MaterialTheme.typography.labelLarge,
-//                color = MaterialTheme.colorScheme.secondary,
-//                modifier = Modifier.padding(top = 8.dp)
-//            )
-//        }
-//    }
-//}
+@Preview
+@Composable
+fun ItemOrixasPreview() {
+    Card(
+        modifier = Modifier
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(8.dp)
+        ) {
+            OrixaImage(
+                imageUrl = R.drawable.nana,
+                contentDescription = null,
+                modifier = Modifier.size(120.dp)
+            )
+            Text(
+                text = stringResource(R.string.nana),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.secondary,
+                modifier = Modifier.padding(top = 8.dp)
+            )
+        }
+    }
+}
