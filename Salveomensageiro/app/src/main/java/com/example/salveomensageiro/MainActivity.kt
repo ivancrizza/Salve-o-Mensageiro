@@ -9,9 +9,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.salveomensageiro.navigation.AppNavigation
 import com.example.salveomensageiro.ui.theme.SalveOMensageiroTheme
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,19 +25,16 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    OrixasGrid()
+                    SetNavigation()
+
                 }
             }
         }
     }
 }
 
-
-
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    SalveOMensageiroTheme {
-       OrixasGrid()
-    }
+fun SetNavigation() {
+    val navController = rememberNavController()
+    AppNavigation(navController = navController)
 }
