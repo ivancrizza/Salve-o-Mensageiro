@@ -29,20 +29,20 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.example.salveomensageiro.data.Orixas
 import com.example.salveomensageiro.data.orixas
 import com.example.salveomensageiro.navigation.Screen
 
 
 @Composable
 fun ItemOrixa(
-    @StringRes name: Int,
-    @DrawableRes imageUrl: Int,
+    orixaInfo: Orixas,
     onItemClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = Modifier
-            .clickable { onItemClick(name.toString()) }
+            .clickable { onItemClick(orixaInfo.name.toString()) }
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -50,12 +50,12 @@ fun ItemOrixa(
                 .padding(8.dp)
         ) {
             OrixaImage(
-                imageUrl = imageUrl,
+                imageUrl = orixaInfo.imageUrl,
                 contentDescription = null,
                 modifier = modifier.size(120.dp)
             )
             Text(
-                text = stringResource(name),
+                text = stringResource(orixaInfo.name),
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = modifier.padding(top = 8.dp)
@@ -97,8 +97,7 @@ fun OrixasHome(
         ) {
             items(orixas) { item ->
                 ItemOrixa(
-                    name = item.text,
-                    imageUrl = item.drawable,
+                    orixaInfo = Orixas(item.text, item.drawable),
                     onItemClick = { nameId ->
                         navController.navigate(Screen.OrixasDetail.createRoute(nameId))
                     }
@@ -112,7 +111,7 @@ fun OrixasHome(
 @Composable
 fun PreviewHome() {
     Column(
-        modifier = Modifier.fillMaxHeight(),
+        modifier = Modifier.fillMaxHeight()
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(3),
@@ -122,8 +121,7 @@ fun PreviewHome() {
         ) {
             items(orixas) { item ->
                 ItemOrixa(
-                    name = R.string.nana,
-                    imageUrl = R.drawable.nana,
+                    orixaInfo = Orixas(item.text, item.drawable),
                     onItemClick = {
                     }
                 )
