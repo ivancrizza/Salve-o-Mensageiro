@@ -1,6 +1,5 @@
-package com.example.salveomensageiro.ui
+package com.example.salveomensageiro.ui.view
 
-import android.icu.lang.UCharacter.VerticalOrientation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -15,10 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.salveomensageiro.OrixaImage
 import com.example.salveomensageiro.R
 import com.example.salveomensageiro.data.OrixasDetail
 

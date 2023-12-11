@@ -6,8 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.salveomensageiro.OrixasHome
-import com.example.salveomensageiro.ui.DetailCard
+import com.example.salveomensageiro.ui.view.OrixasHome
 
 @Composable
 fun AppNavigation(navController: NavHostController) {
