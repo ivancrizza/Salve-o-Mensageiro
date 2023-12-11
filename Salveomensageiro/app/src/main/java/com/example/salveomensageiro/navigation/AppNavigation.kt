@@ -24,7 +24,7 @@ fun AppNavigation(navController: NavHostController) {
             route = Screen.OrixasDetail.route,
             arguments = listOf(navArgument("name") { type = NavType.StringType })
         ) { backStackEntry ->
-            DetailCard(backStackEntry.arguments?.getString("name"))
+//            DetailCard(backStackEntry.arguments?.getString("name"))
         }
     }
 }

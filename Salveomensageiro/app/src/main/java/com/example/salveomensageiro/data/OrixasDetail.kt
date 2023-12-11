@@ -1,9 +1,12 @@
 package com.example.salveomensageiro.data
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+
 data class OrixasDetail(
     val id: Int,
-    val image: String,
-    val name: String,
+    @DrawableRes val imageUrl: Int,
+    @StringRes val name: Int,
     val day: String,
     val color: String,
     val symbols: String,
