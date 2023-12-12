@@ -29,12 +29,12 @@ import com.example.salveomensageiro.data.Orixas
 @Composable
 fun ItemOrixa(
     orixaInfo: Orixas,
-    onItemClick: (String) -> Unit,
+    onItemClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = Modifier
-            .clickable { onItemClick(orixaInfo.name.toString()) }
+            .clickable { onItemClick(orixaInfo.name) }
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,

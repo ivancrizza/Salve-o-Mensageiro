@@ -6,24 +6,28 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.salveomensageiro.ui.view.DetailCard
 import com.example.salveomensageiro.ui.view.OrixasHome
 
 @Composable
 fun AppNavigation(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Screen.Home.route
+        startDestination = "orixasHome"
     ) {
         composable(
-            route = Screen.Home.route
+            route = "orixasHome"
         ) {
             OrixasHome(navController = navController)
         }
         composable(
-            route = Screen.OrixasDetail.route,
-            arguments = listOf(navArgument("name") { type = NavType.StringType })
+            route = "detailCard/{name}",
+            arguments = listOf(navArgument("name") { type = NavType.IntType })
         ) { backStackEntry ->
-//            DetailCard(backStackEntry.arguments?.getString("name"))
+            val name = backStackEntry.arguments?.getInt("nome")
+            name?.let { name ->
+                DetailCard(orixaId = name)
+            }
         }
     }
 }

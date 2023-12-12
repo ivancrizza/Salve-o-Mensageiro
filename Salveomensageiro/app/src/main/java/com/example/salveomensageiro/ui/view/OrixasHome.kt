@@ -12,16 +12,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.example.salveomensageiro.data.Orixas
 import com.example.salveomensageiro.data.orixas
 
+
 @Composable
 fun OrixasHome(
-    navController: NavController, modifier: Modifier = Modifier
+    navController: NavHostController, modifier: Modifier = Modifier
 ) {
+    val orixasViewModel: OrixViewModel = viewModel(
+        factory = OrixasViewModelFactory(navController)
+    )
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxHeight()
     ) {
         LazyVerticalGrid(
@@ -35,7 +40,7 @@ fun OrixasHome(
                 ItemOrixa(
                     orixaInfo = Orixas(item.text, item.drawable),
                     onItemClick = {
-
+                        navController.navigate("detailCard/${item.text}")
                     }
                 )
             }

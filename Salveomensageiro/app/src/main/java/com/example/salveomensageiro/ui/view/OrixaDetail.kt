@@ -13,17 +13,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.salveomensageiro.R
-import com.example.salveomensageiro.data.OrixasDetail
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 
 @Composable
 fun DetailCard(
-    modifier: Modifier = Modifier,
-    orixasDetail: OrixasDetail
+    orixaId: Int,
+    modifier: Modifier = Modifier
 ) {
+    val orixasViewModel: OrixViewModel = viewModel()
     Card(
         modifier = Modifier
     ) {
@@ -32,9 +31,7 @@ fun DetailCard(
             modifier = Modifier
                 .padding(8.dp)
         ) {
-            OrixasDetailCard(modifier, orixasDetail)
-
-
+            OrixasDetailCard(modifier, orixaId, orixasViewModel)
         }
     }
 }
@@ -42,83 +39,87 @@ fun DetailCard(
 @Composable
 fun OrixasDetailCard(
     modifier: Modifier = Modifier,
-    orixasDetail: OrixasDetail
+    orixaId: Int = 0,
+    orixasViewModel: OrixViewModel
 ) {
+
+
+    val orixa = orixasViewModel.orixáSelecionado.value
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier.padding(8.dp)
     ) {
-        Spacer(modifier = modifier.padding(8.dp))
-        OrixaImage(
-            imageUrl = orixasDetail.imageUrl,
-            contentDescription = null,
-            modifier = modifier.size(220.dp)
-        )
-        Text(
-            text = stringResource(id = orixasDetail.name),
-            style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center
-        )
-        Text(
-            text = orixasDetail.day,
-            modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixasDetail.color,
-            modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixasDetail.symbols,
-            modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixasDetail.elements,
-            modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixasDetail.know,
-            modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixasDetail.greetings,
-            modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
-        )
+        orixa?.let { orixa ->
+            Spacer(modifier = modifier.padding(8.dp))
+            OrixaImage(
+                imageUrl = orixa.imageUrl,
+                contentDescription = null,
+                modifier = modifier.size(220.dp)
+            )
+            Text(
+                text = stringResource(id = orixaId),
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.secondary,
+                modifier = modifier.padding(top = 8.dp),
+                textAlign = TextAlign.Center
+            )
+            Text(
+                text = orixa.day,
+                modifier.padding(top = 8.dp),
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.secondary,
+            )
+            Text(
+                text = orixa.color,
+                modifier.padding(top = 8.dp),
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.secondary,
+            )
+            Text(
+                text = orixa.symbols,
+                modifier.padding(top = 8.dp),
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.secondary,
+            )
+            Text(
+                text = orixa.elements,
+                modifier.padding(top = 8.dp),
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.secondary,
+            )
+            Text(
+                text = orixa.know,
+                modifier.padding(top = 8.dp),
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.secondary,
+            )
+            Text(
+                text = orixa.greetings,
+                modifier.padding(top = 8.dp),
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.secondary,
+            )
+        }
     }
-
 }
 
 
-@Preview
-@Composable
-fun DetailPreview() {
-    OrixasDetailCard(
-        orixasDetail = OrixasDetail(
-            1,
-            R.drawable.ewa,
-            R.string.ewa,
-            "Sábado",
-            "Vermelho Vivo, Coral e Rosa, amarelo",
-            "Lira, arpão, Ofá",
-            "Florestas, Céu Rosado, Astros e Estrelas, mata virgem",
-            "Beleza, Vidência (sensibilidade, sexto sentido), Criatividade, possibilidades",
-            "Ri Ro Ewá!"
-        )
-    )
-}
+//@Preview
+//@Composable
+//fun DetailPreview() {
+//    OrixasDetailCard(
+//        orixasDetail = Orixas(
+//            R.string.ewa,
+//            R.drawable.ewa,
+//            "Sábado",
+//            "Vermelho Vivo, Coral e Rosa, amarelo",
+//            "Lira, arpão, Ofá",
+//            "Florestas, Céu Rosado, Astros e Estrelas, mata virgem",
+//            "Beleza, Vidência (sensibilidade, sexto sentido), Criatividade, possibilidades",
+//            "Ri Ro Ewá!"
+//        )
+//    )
+//}
 
 

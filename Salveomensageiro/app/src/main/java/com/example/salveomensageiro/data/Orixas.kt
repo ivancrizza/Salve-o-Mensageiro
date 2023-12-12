@@ -9,9 +9,16 @@ import com.example.salveomensageiro.R
 @Immutable
 data class Orixas(
     @StringRes val name: Int,
-    @DrawableRes val imageUrl: Int
+    @DrawableRes val imageUrl: Int,
+    val day: String = "",
+    val color: String = "",
+    val symbols: String = "",
+    val elements: String = "",
+    val know: String = "",
+    val greetings: String = ""
 )
- val orixas = listOf(
+
+val orixas = listOf(
     R.drawable.nana to R.string.nana,
     R.drawable.omolu1 to R.string.omolu,
     R.drawable.oxumare to R.string.oxumare,
@@ -28,7 +35,8 @@ data class Orixas(
     R.drawable.logunede1 to R.string.logunEde,
     R.drawable.ossaim1 to R.string.ossain,
     R.drawable.ibeji1 to R.string.ibeji,
-    R.drawable.iroko_c1 to R.string.iroko).map { DrawableStringPair(it.first, it.second) }
+    R.drawable.iroko_c1 to R.string.iroko
+).map { DrawableStringPair(it.first, it.second) }
 
 data class DrawableStringPair(
     @DrawableRes val drawable: Int,
