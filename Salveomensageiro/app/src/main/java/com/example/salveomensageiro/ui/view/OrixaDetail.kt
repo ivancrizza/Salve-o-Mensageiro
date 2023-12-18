@@ -9,20 +9,25 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.salveomensageiro.ui.viewmodel.OrixasViewmodel
 
 
 @Composable
 fun DetailCard(
-    orixaId: Int,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    orixasViewmodel: OrixasViewmodel
 ) {
-    val orixasViewModel: OrixViewModel = viewModel()
+
     Card(
         modifier = Modifier
     ) {
@@ -31,7 +36,7 @@ fun DetailCard(
             modifier = Modifier
                 .padding(8.dp)
         ) {
-            OrixasDetailCard(modifier, orixaId, orixasViewModel)
+            OrixasDetailCard(modifier, orixasViewmodel)
         }
     }
 }
@@ -39,18 +44,17 @@ fun DetailCard(
 @Composable
 fun OrixasDetailCard(
     modifier: Modifier = Modifier,
-    orixaId: Int = 0,
-    orixasViewModel: OrixViewModel
+    orixasViewmodel: OrixasViewmodel
 ) {
 
+    val orixas by orixasViewmodel.orixas.observeAsState()
 
-    val orixa = orixasViewModel.orixáSelecionado.value
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier.padding(8.dp)
     ) {
-        orixa?.let { orixa ->
+        orixas?.let { orixa ->
             Spacer(modifier = modifier.padding(8.dp))
             OrixaImage(
                 imageUrl = orixa.imageUrl,
@@ -58,7 +62,7 @@ fun OrixasDetailCard(
                 modifier = modifier.size(220.dp)
             )
             Text(
-                text = stringResource(id = orixaId),
+                text = stringResource(id = orixa.name),
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = modifier.padding(top = 8.dp),
@@ -105,21 +109,10 @@ fun OrixasDetailCard(
 }
 
 
-//@Preview
-//@Composable
-//fun DetailPreview() {
-//    OrixasDetailCard(
-//        orixasDetail = Orixas(
-//            R.string.ewa,
-//            R.drawable.ewa,
-//            "Sábado",
-//            "Vermelho Vivo, Coral e Rosa, amarelo",
-//            "Lira, arpão, Ofá",
-//            "Florestas, Céu Rosado, Astros e Estrelas, mata virgem",
-//            "Beleza, Vidência (sensibilidade, sexto sentido), Criatividade, possibilidades",
-//            "Ri Ro Ewá!"
-//        )
-//    )
-//}
+@Preview
+@Composable
+fun DetailPreview() {
+
+}
 
 

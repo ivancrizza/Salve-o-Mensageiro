@@ -16,15 +16,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.salveomensageiro.data.Orixas
 import com.example.salveomensageiro.data.orixas
+import com.example.salveomensageiro.ui.viewmodel.OrixasViewmodel
 
 
 @Composable
 fun OrixasHome(
-    navController: NavHostController, modifier: Modifier = Modifier
+    navController: NavHostController, modifier: Modifier = Modifier,
+    orixasViewmodel: OrixasViewmodel
 ) {
-    val orixasViewModel: OrixViewModel = viewModel(
-        factory = OrixasViewModelFactory(navController)
-    )
     Column(
         modifier = modifier
             .fillMaxHeight()
@@ -37,9 +36,11 @@ fun OrixasHome(
             modifier = Modifier.padding(top = 16.dp)
         ) {
             items(orixas) { item ->
+                val orixaInfo = Orixas(item.text, item.drawable)
                 ItemOrixa(
-                    orixaInfo = Orixas(item.text, item.drawable),
+                    orixaInfo = orixaInfo,
                     onItemClick = {
+                        orixasViewmodel.setOrixas(orixaInfo)
                         navController.navigate("detailCard/${item.text}")
                     }
                 )
