@@ -1,0 +1,174 @@
+{
+  "orixas": [
+    {
+      "título": "Nanã",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/04/nana.jpg?w=216&h=300",
+      "dia": "Dia: Terça-feira",
+      "cor": "Cores: Anil, Branco e Roxo",
+      "símbolos": "Símbolo: Bastão de hastes de palmeira (Ibiri)",
+      "elemento": "Elemento: Terra, Água, Lodo",
+      "domínio": "Domínios: Vida e Morte, Saúde e Maternidade",
+      "saudações": "Saudação: Salubá!"
+    },
+    {
+      "título": "Omolú",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/04/omolu1.jpg?w=238&h=300",
+      "dia": "DIA: Segunda-feira",
+      "cor": "CORES: Preto, branco e vermelho.",
+      "símbolos": "SÍMBOLOS: Xaxará ou Íleo, lança de madeira, lagidibá.",
+      "elemento": "ELEMENTOS: Terra e fogo do interior da Terra.",
+      "domínio": "DOMÍNIOS: Doenças epidémicas, cura de doenças, saúde, vida e morte.",
+      "saudações": "SAUDAÇÃO: Atotoó!!!"
+    },
+    {
+      "título": "Oxumarê",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/04/oxumare.jpg?w=242&h=300",
+      "dia": "DIA: Terça-feira",
+      "cor": "CORES: Amarelo e verde (ou preto) e todas as cores do arco-íris",
+      "símbolos": "SÍMBOLOS: Ebiri, serpente, círculo, bradjá.",
+      "elemento": "ELEMENTOS: Céu e terra",
+      "domínio": "DOMÍNIOS: Riqueza, vida longa, ciclos, movimentos constantes.",
+      "saudações": "SAUDAÇÃO: A Run Boboi!!!"
+    },
+    {
+      "título": "Oxalá",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/05/oxalalufa.jpg?w=235&h=300",
+      "dia": "Dia: Sexta-feira",
+      "cor": "Cor: Branco leitoso.",
+      "símbolos": "Simbolo: Opáxoró",
+      "elemento": "Elementos: Atmosfera e Céu",
+      "domínio": "Domínios: Poder procriador masculino, Criação, Vida e Morte",
+      "saudações": "Saudação: Epa Bàbá"
+    },
+    {
+      "título": "Exú",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/05/exu1.jpg?w=248&h=300",
+      "dia": "DIA: Segunda-feira.",
+      "cor": "CORES: Preto (ou seja, a fusão das cores primárias) e vermelho.",
+      "símbolos": "SÍMBOLOS: Ogó de forma fálica, falo erecto.",
+      "elemento": "ELEMENTOS: Terra e fogo.",
+      "domínio": "DOMÍNIOS Sexo, magia, união, poder e transformação.",
+      "saudações": "SAUDAÇÃO Laroié!"
+    },
+    {
+      "título": "Ogun",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/05/ogum.jpg?w=205&h=300",
+      "dia": "DIA: Terça-Feira",
+      "cor": "CORES: Verde ou Azul-escuro, Vermelho (algumas qualidades)",
+      "símbolos": "SÍMBOLOS: Bigorna, Faca, Pá, Enxada e outras ferramentas",
+      "elemento": "ELEMENTOS: Terra (florestas e estradas) e Fogo",
+      "domínio": "DOMÍNIOS: Guerra, Progresso, Conquista e Metalurgia",
+      "saudações": "SAUDAÇÃO: Ògún ieé!!"
+    },
+    {
+      "título": "Oxóssi",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/05/oxossi.jpg?w=213&h=300",
+      "dia": "DIA: Quinta-feira",
+      "cor": "COR: Azul-Turquesa",
+      "símbolos": "SÍMBOLOS: Ofá (arco), Damatá (flecha), Erukeré",
+      "elemento": "ELEMNTO: Terra (florestas e campos cultiváveis)",
+      "domínio": "DOMÍNIOS: Caça, Agricultura, Alimentação e Fartura",
+      "saudações": "SAUDAÇÃO: Òké Aro!!! Arolé!"
+    },
+    {
+      "título": "Yemanjá",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/05/iemanja.jpg?w=231&h=300",
+      "dia": "Dia: Sábado",
+      "cor": "Cor: Branco, Prateado, Azul e verde",
+      "símbolos": "Símbolo: Abebé prateado, Alfange",
+      "elemento": "Elementos: Águas doces que correm para o mar, Águas do mar",
+      "domínio": "Domínios: Inteligência,Maternidade, Saúde mental e Psicológica",
+      "saudações": "Saudação: Erù-Iyá, Odó-Iyá"
+    },
+    {
+      "título": "Iansã",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/05/oya.jpg?w=218&h=300",
+      "dia": "Dia: Quarta-feira",
+      "cor": "Cor: Marrom, Vermelho e Rosa",
+      "símbolos": "Símbolo: Espada e Eruexin",
+      "elemento": "Elementos: Ar em movimento,qualquer tipo de vento, Fogo",
+      "domínio": "Domínios: Tempestades, Ventanias, Raios, Morte",
+      "saudações": "Saudação: Epahei!"
+    },
+    {
+      "título": "Oxun",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/05/oxum.jpg?w=500",
+      "dia": "Dia: Sábado",
+      "cor": "Cores: Amarelo – Ouro",
+      "símbolos": "Símbolo: Leque com espelho (Abebé)",
+      "elemento": "Elemento: Água Doce (Rios, Cachoeiras, Nascentes, Lagoas)",
+      "domínio": "Domínios: Amor, Riqueza, Fecundidade, Gestação e Maternidade",
+      "saudações": "Saudação: Òóré Yéyé ó!"
+    },
+    {
+      "título": "Obá",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/06/oba.jpg?w=223&h=300",
+      "dia": "Dia: Quarta-feira",
+      "cor": "Cores: Marron raiado, Vermelho e Amarelo",
+      "símbolos": "Símbolo: Ofange (espada) e Escudo de Cobre, Ofá (arco e flecha)",
+      "elemento": "Elemento: Fogo e Águas Revoltas",
+      "domínio": "Domínios: Amor e Sucesso Profissional",
+      "saudações": "Saudação: Obà Siré!"
+    },
+    {
+      "título": "Ewá",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/06/ewa.jpg?w=210&h=300",
+      "dia": "Dia da semana: Sábado",
+      "cor": "Cores: Vermelho Vivo, Coral e Rosa, amarelo",
+      "símbolos": "Símbolos: Lira, arpão, Ofá",
+      "elemento": "Elementos: Florestas, Céu Rosado, Astros e Estrelas, mata virgem",
+      "domínio": "Domínios: Beleza, Vidência (sensibilidade, sexto sentido), Criatividade, possibilidades",
+      "saudações": "Saudação: Ri Ro Ewá!"
+    },
+    {
+      "título": "Xangô",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/07/xango.jpg?w=210&h=300",
+      "dia": "DIA: Quarta-Feira",
+      "cor": "CORES: Vermelho (ou marrom) e branco",
+      "símbolos": "SÍMBOLOS: Oxés (machados duplos), Edún-Àrá, xerê",
+      "elemento": "ELEMENTOS: Fogo (grandes chamas, raios), formações rochosas.",
+      "domínio": "DOMÍNOS: Poder estatal, justiça, questões jurídicas.",
+      "saudações": "SAUDAÇÃO: Kawó Kabiesilé!!"
+    },
+    {
+      "título": "Logun Edé",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/08/logunede1.jpg?w=216&h=300",
+      "dia": "DIA: Quinta-feira",
+      "cor": "CORES: Azul-turquesa e Amarelo-ouro",
+      "símbolos": "SÍMBOLOS: Balança, Ofá, Abebè e Cavalo-marinho",
+      "elemento": "ELEMENTOS: Terra (floresta) e Água (de rios e cachoeiras)",
+      "domínio": "DOMÍNIOS: Riqueza, Fartura e Beleza",
+      "saudações": "SAUDAÇÃO: Logun ô akofá!!!"
+    },
+    {
+      "título": "Ossain",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/08/ossaim1.jpg?w=207&h=300",
+      "dia": "DIA: Quinta-feira.",
+      "cor": "CORES: Verde e Branco.",
+      "símbolos": "SÍMBOLOS: Haste ladeada por sete lanças com um pássaro no topo (árvore estilizada).",
+      "elemento": "ELEMENTOS: Floresta e Plantas selvagens (Terra).",
+      "domínio": "DOMÍNIOS: Medicina e Liturgia através das folhas.",
+      "saudações": "SAUDAÇÃO: Ewé ó!"
+    },
+    {
+      "título": "Ibeji",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/08/ibeji1.jpg?w=229&h=300",
+      "dia": "DIA: Domingo",
+      "cor": "CORES: Azul, Rosa e Verde",
+      "símbolos": "SÍMBOLOS: 2 Bonecos Gémeos, 2 Cabacinhas",
+      "elemento": "ELEMENTOS: Ar",
+      "domínio": "DOMÍNIOS: Nascimento e Infância.",
+      "saudações": "SAUDAÇÃO: Bejiróó!"
+    },
+    {
+      "título": "Irôko",
+      "imagem": "https://ocandomble.files.wordpress.com/2008/08/iroko_c1.jpg?w=230&h=300",
+      "dia": "Dia da Semana: Terça-feira.",
+      "cor": "Cores: Branco, Verde /castanho",
+      "símbolos": "Símbolo: Árvore/tronco",
+      "elemento": "Elemento: Gameleira",
+      "domínio": "Saudação: Iroko Issó! Eró!Iroko Kissilé.",
+      "saudações": "Iroko é um Orixá muito antigo. Iroko foi à primeira árvore plantada e pela qual todos os restantes Orixás desceram à Terra. Iroko é a própria representação da dimensão Tempo. Iroko é o comandante de todas as árvores sagradas, o vanguardeiro, os demais Osa Iggi devem-lhe obediência porque só ele é Iggi Olórun, a árvore do Senhor do Céu."
+    }
+  ]
+}
