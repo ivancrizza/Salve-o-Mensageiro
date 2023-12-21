@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -25,12 +26,21 @@ fun OrixasHome(
     modifier: Modifier = Modifier,
     orixasViewmodel: OrixasViewmodel
 ) {
-    val orixas = orixasViewmodel.state.observeAsState()
-    val orixasList = when (val state = orixas.value) {
-        is OrixaViewmodelState.getOrixas -> state.orixa
+    val orixas = orixasViewmodel.state.collectAsState().value
+    when (val state = orixas) {
+        is OrixaViewmodelState.getOrixas -> SetHomeCard(modifier, state.orixa, navController)
 
-        else -> emptyList()
+        else -> {}
     }
+
+}
+
+@Composable
+private fun SetHomeCard(
+    modifier: Modifier,
+    orixasList: List<Orixa>,
+    navController: NavHostController
+) {
     Column(
         modifier = modifier
             .fillMaxHeight()

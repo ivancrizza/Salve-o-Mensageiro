@@ -4,4 +4,5 @@ import com.example.salveomensageiro.data.Orixa
 
 sealed class OrixaViewmodelState {
     data class getOrixas(val orixa: List<Orixa>) : OrixaViewmodelState()
+    object initialState : OrixaViewmodelState()
 }
