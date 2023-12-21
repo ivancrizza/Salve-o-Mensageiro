@@ -31,11 +31,6 @@ fun OrixasHome(
 
         else -> emptyList()
     }
-
-
-    LaunchedEffect(Unit) {
-        orixasViewmodel.getOrixas()
-    }
     Column(
         modifier = modifier
             .fillMaxHeight()

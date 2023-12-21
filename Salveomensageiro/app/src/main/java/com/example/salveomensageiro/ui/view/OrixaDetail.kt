@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.salveomensageiro.data.Orixa
 import com.example.salveomensageiro.ui.viewmodel.OrixaViewmodelState
 import com.example.salveomensageiro.ui.viewmodel.OrixasViewmodel
 
@@ -49,67 +50,76 @@ fun OrixasDetailCard(
 ) {
 
     val orixas = orixasViewmodel.state.observeAsState()
-    val orixasList = when (val state = orixas.value) {
-        is OrixaViewmodelState.getOrixas -> state.orixa
+    when (val state = orixas.value) {
+        is OrixaViewmodelState.getOrixas -> SetDetailOrixa(orixa = state.orixa)
 
-        else -> emptyList()
+        else -> {}
     }
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = modifier.padding(8.dp)
-    ) {
-        orixasList.let { orixa ->
+
+}
+
+@Composable
+private fun SetDetailOrixa(
+    modifier: Modifier = Modifier,
+    orixa: List<Orixa>
+) {
+    orixa.map {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = modifier.padding(8.dp)
+        ) {
             Spacer(modifier = modifier.padding(8.dp))
             OrixaImage(
-                imageUrl = orixa.first().imageUrl,
+                imageUrl = it.imageUrl,
                 contentDescription = null,
                 modifier = modifier.size(220.dp)
             )
             Text(
-                text = orixa.first().name,
+                text = it.name,
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = modifier.padding(top = 8.dp),
                 textAlign = TextAlign.Center
             )
             Text(
-                text = orixa.first().day,
+                text = it.day,
                 modifier.padding(top = 8.dp),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.secondary,
             )
             Text(
-                text = orixa.first().color,
+                text = it.color,
                 modifier.padding(top = 8.dp),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.secondary,
             )
             Text(
-                text = orixa.first().symbols,
+                text = it.symbols,
                 modifier.padding(top = 8.dp),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.secondary,
             )
             Text(
-                text = orixa.first().elements,
+                text = it.elements,
                 modifier.padding(top = 8.dp),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.secondary,
             )
             Text(
-                text = orixa.first().know,
+                text = it.know,
                 modifier.padding(top = 8.dp),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.secondary,
             )
             Text(
-                text = orixa.first().greetings,
+                text = it.greetings,
                 modifier.padding(top = 8.dp),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.secondary,
             )
+
         }
     }
 }
