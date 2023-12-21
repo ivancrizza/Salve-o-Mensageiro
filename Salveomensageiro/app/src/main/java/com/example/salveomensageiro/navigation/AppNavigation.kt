@@ -26,9 +26,32 @@ fun AppNavigation(orixasViewmodel: OrixasViewmodel) {
             OrixasHome(navController = navController, orixasViewmodel = orixasViewmodel)
         }
         composable(
-            route = "detailCard/{name}"
-        ) {
-            DetailCard(modifier, orixasViewmodel)
+            route = "detailCard/{index}",
+            arguments = listOf(navArgument("index") {
+                type = NavType.IntType
+            })
+        ) { backStackEntry ->
+            val index = backStackEntry.arguments?.getInt("index") ?: 0
+            DetailCard(orixasViewmodel, index = index)
         }
     }
 }
+
+
+// NavHost(
+//        navController = navController,
+//        startDestination = "orixasHome"
+//    ) {
+//        composable(
+//            route = "orixasHome"
+//        ) {
+//            OrixasHome(navController = navController, orixasViewmodel = orixasViewmodel)
+//        }
+//        composable(
+//            "detailCard/{index}",
+//            arguments = listOf(navArgument("index") { type = NavType.IntType })
+//        ) { backStackEntry ->
+//            val index = backStackEntry.arguments?.getInt("index") ?: 0
+//            DetailCard(orixasViewmodel = orixasViewmodel, index = index)
+//        }
+//    }

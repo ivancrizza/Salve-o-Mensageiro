@@ -7,11 +7,9 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -28,7 +26,7 @@ fun OrixasHome(
 ) {
     val orixas = orixasViewmodel.state.collectAsState().value
     when (val state = orixas) {
-        is OrixaViewmodelState.getOrixas -> SetHomeCard(modifier, state.orixa, navController)
+        is OrixaViewmodelState.GetOrixas -> SetHomeCard(modifier, state.orixa, navController)
 
         else -> {}
     }
@@ -52,12 +50,12 @@ private fun SetHomeCard(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier.padding(top = 16.dp)
         ) {
-            items(orixasList) { item ->
+            itemsIndexed(orixasList) { index, item ->
                 val orixaInfo = Orixa(item.name, item.imageUrl)
                 ItemOrixa(
                     orixaInfo = orixaInfo,
                     onItemClick = {
-                        navController.navigate("detailCard/${item.name}")
+                        navController.navigate("detailCard/${index}")
                     }
                 )
             }
