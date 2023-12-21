@@ -2,7 +2,6 @@ package com.example.salveomensageiro.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -36,22 +35,3 @@ fun AppNavigation(orixasViewmodel: OrixasViewmodel) {
         }
     }
 }
-
-
-// NavHost(
-//        navController = navController,
-//        startDestination = "orixasHome"
-//    ) {
-//        composable(
-//            route = "orixasHome"
-//        ) {
-//            OrixasHome(navController = navController, orixasViewmodel = orixasViewmodel)
-//        }
-//        composable(
-//            "detailCard/{index}",
-//            arguments = listOf(navArgument("index") { type = NavType.IntType })
-//        ) { backStackEntry ->
-//            val index = backStackEntry.arguments?.getInt("index") ?: 0
-//            DetailCard(orixasViewmodel = orixasViewmodel, index = index)
-//        }
-//    }
