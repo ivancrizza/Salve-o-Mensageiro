@@ -64,6 +64,8 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.gson)
     implementation(libs.material)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.retrofit2)
     implementation(libs.retrofit2.converter.gson)
     implementation(libs.okhttp3.logging.interceptor)
