@@ -2,7 +2,6 @@ package com.example.salveomensageiro.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -26,9 +25,13 @@ fun AppNavigation(orixasViewmodel: OrixasViewmodel) {
             OrixasHome(navController = navController, orixasViewmodel = orixasViewmodel)
         }
         composable(
-            route = "detailCard/{name}"
-        ) {
-            DetailCard(modifier, orixasViewmodel)
+            route = "detailCard/{index}",
+            arguments = listOf(navArgument("index") {
+                type = NavType.IntType
+            })
+        ) { backStackEntry ->
+            val index = backStackEntry.arguments?.getInt("index") ?: 0
+            DetailCard(orixasViewmodel, index = index)
         }
     }
 }

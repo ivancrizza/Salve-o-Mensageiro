@@ -1,6 +1,5 @@
 package com.example.salveomensageiro.ui.view
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -23,13 +22,13 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.example.salveomensageiro.R
-import com.example.salveomensageiro.data.Orixas
+import com.example.salveomensageiro.data.Orixa
 
 
 @Composable
 fun ItemOrixa(
-    orixaInfo: Orixas,
-    onItemClick: (Int) -> Unit,
+    orixaInfo: Orixa,
+    onItemClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -47,7 +46,7 @@ fun ItemOrixa(
                 modifier = modifier.size(120.dp)
             )
             Text(
-                text = stringResource(orixaInfo.name),
+                text = orixaInfo.name,
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = modifier.padding(top = 8.dp)
@@ -59,7 +58,7 @@ fun ItemOrixa(
 
 @Composable
 fun OrixaImage(
-    @DrawableRes imageUrl: Int,
+    imageUrl: String,
     contentDescription: String?,
     modifier: Modifier = Modifier
 ) {
@@ -92,7 +91,7 @@ fun ItemOrixasPreview() {
                 .padding(8.dp)
         ) {
             OrixaImage(
-                imageUrl = R.drawable.nana,
+                imageUrl = "",
                 contentDescription = null,
                 modifier = Modifier.size(120.dp)
             )
