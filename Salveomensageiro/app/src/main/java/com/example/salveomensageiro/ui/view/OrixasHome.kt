@@ -8,9 +8,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.salveomensageiro.data.Orixa
@@ -26,11 +30,35 @@ fun OrixasHome(
 ) {
     val orixas = orixasViewmodel.state.collectAsState().value
     when (val state = orixas) {
-        is OrixaViewmodelState.GetOrixas -> SetHomeCard(modifier, state.orixa, navController)
+        is OrixaViewmodelState.GetOrixas -> SetScafold(modifier, state.orixa, navController)
 
         else -> {}
     }
 
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SetScafold(
+    modifier: Modifier = Modifier,
+    orixasList: List<Orixa>,
+    navController: NavHostController
+) {
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    Scaffold(
+        modifier = modifier.nestedScroll(
+            scrollBehavior.nestedScrollConnection
+        ),
+        topBar = {
+            OrixaSearchTopBar(scrollBehavior = scrollBehavior, onFilterClick = {})
+        }
+    ) { contentPadding ->
+        SetHomeCard(
+            modifier = modifier.padding(top = contentPadding.calculateTopPadding()),
+            orixasList = orixasList,
+            navController = navController
+        )
+    }
 }
 
 @Composable
