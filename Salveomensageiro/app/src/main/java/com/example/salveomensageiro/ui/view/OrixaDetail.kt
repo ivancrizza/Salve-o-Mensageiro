@@ -122,7 +122,78 @@ private fun SetDetailOrixa(
 @Preview
 @Composable
 fun DetailPreview() {
+    val orixa = Orixa(
+        name = "Nanã",
+        imageUrl = "https://ocandomble.files.wordpress.com/2008/04/nana.jpg?w=216&h=300",
+        day = "Dia: Terça-feira",
+        color = "Cores: Anil, Branco e Roxo",
+        symbols = "Símbolo: Bastão de hastes de palmeira (Ibiri)",
+        elements = "Elemento: Terra, Água, Lodo",
+        know = "Domínios: Vida e Morte, Saúde e Maternidade",
+        greetings = "Saudação: Salubá!"
+    )
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = Modifier.padding(8.dp)
+    ) {
+        Spacer(modifier = Modifier.padding(8.dp))
+        OrixaImage(
+            imageUrl = orixa.imageUrl,
+            contentDescription = null,
+            modifier = Modifier.size(220.dp)
+        )
+        Text(
+            text = orixa.name,
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.secondary,
+            modifier = Modifier.padding(top = 8.dp),
+            textAlign = TextAlign.Center
+        )
+        Text(
+            text = orixa.day,
+            Modifier.padding(top = 8.dp),
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.secondary,
+        )
+        Text(
+            text = orixa.color,
+            Modifier.padding(top = 8.dp),
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.secondary,
+        )
+        Text(
+            text = orixa.symbols,
+            Modifier.padding(top = 8.dp),
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.secondary,
+        )
+        Text(
+            text = orixa.elements,
+            Modifier.padding(top = 8.dp),
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.secondary,
+        )
+        Text(
+            text = orixa.know,
+            Modifier.padding(top = 8.dp),
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.secondary,
+        )
+        Text(
+            text = orixa.greetings,
+            Modifier.padding(top = 8.dp),
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.secondary,
+        )
 
+    }
 }
 
 
