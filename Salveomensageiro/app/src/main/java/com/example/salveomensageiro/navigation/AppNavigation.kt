@@ -14,7 +14,6 @@ import com.example.salveomensageiro.ui.viewmodel.OrixasViewmodel
 @Composable
 fun AppNavigation(orixasViewmodel: OrixasViewmodel) {
     val navController = rememberNavController()
-    val modifier = Modifier
     NavHost(
         navController = navController,
         startDestination = "orixasHome"
@@ -28,6 +27,15 @@ fun AppNavigation(orixasViewmodel: OrixasViewmodel) {
             route = "detailCard/{index}",
             arguments = listOf(navArgument("index") {
                 type = NavType.IntType
+            })
+        ) { backStackEntry ->
+            val index = backStackEntry.arguments?.getInt("index") ?: 0
+            DetailCard(orixasViewmodel, index = index)
+        }
+        composable(
+            route = "detailCardSearch/{name}",
+            arguments = listOf(navArgument("name") {
+                type = NavType.StringType
             })
         ) { backStackEntry ->
             val index = backStackEntry.arguments?.getInt("index") ?: 0

@@ -6,12 +6,14 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,7 +29,8 @@ fun DetailCard(
 ) {
 
     Card(
-        modifier = Modifier
+        modifier = Modifier,
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondary)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -74,7 +77,7 @@ private fun SetDetailOrixa(
         Text(
             text = orixa.name,
             style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.secondary,
+            color = Color.White,
             modifier = modifier.padding(top = 8.dp),
             textAlign = TextAlign.Center
         )
@@ -82,37 +85,37 @@ private fun SetDetailOrixa(
             text = orixa.day,
             modifier.padding(top = 8.dp),
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
+            color = Color.White,
         )
         Text(
             text = orixa.color,
             modifier.padding(top = 8.dp),
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
+            color = Color.White,
         )
         Text(
             text = orixa.symbols,
             modifier.padding(top = 8.dp),
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
+            color = Color.White,
         )
         Text(
             text = orixa.elements,
             modifier.padding(top = 8.dp),
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
+            color = Color.White,
         )
         Text(
             text = orixa.know,
             modifier.padding(top = 8.dp),
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
+            color = Color.White,
         )
         Text(
             text = orixa.greetings,
             modifier.padding(top = 8.dp),
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.secondary,
+            color = Color.White,
         )
 
     }
