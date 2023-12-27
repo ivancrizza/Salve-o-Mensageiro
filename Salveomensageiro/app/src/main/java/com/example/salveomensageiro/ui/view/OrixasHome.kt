@@ -76,80 +76,7 @@ fun SetScafold(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Preview
-@Composable
-fun HomePreviewWithScafold() {
-    val nav = rememberNavController()
-    val ls = List(16, init = {
-        Orixa(
-            name = "Yemanjá",
-            imageUrl = "https://ocandomble.files.wordpress.com/2008/04/nana.jpg?w=216&h=300"
 
-        )
-    })
-
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-    Scaffold(
-
-        modifier = Modifier.nestedScroll(
-            scrollBehavior.nestedScrollConnection
-        ),
-        topBar = {
-            OrixaSearchTopBar(scrollBehavior = scrollBehavior, onFilterClick = { ("nfgh")
-            })
-        },
-        containerColor = MaterialTheme.colorScheme.primary
-    ) { contentPadding ->
-        SetHomeCard(
-            modifier = Modifier.padding(top = contentPadding.calculateTopPadding()),
-            orixasList = ls,
-            navController = nav
-        )
-    }
-}
-
-@Preview
-@Composable
-fun HomeCardPreview() {
-    SetHomeMock()
-}
-
-@Composable
-private fun SetHomeMock() {
-    val ls = List(16, init = {
-        Orixa(
-            name = "Yemanjá",
-            imageUrl = "https://ocandomble.files.wordpress.com/2008/04/nana.jpg?w=216&h=300"
-
-        )
-    })
-
-    Column(
-        modifier = Modifier
-            .fillMaxHeight()
-    ) {
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(3),
-            contentPadding = PaddingValues(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier.padding(top = 16.dp)
-        ) {
-            itemsIndexed(ls, key = { index, item ->
-                index
-            }
-            ) { index, item ->
-                val orixaInfo = Orixa(item.name, item.imageUrl)
-                ItemOrixa(
-                    orixaInfo = orixaInfo,
-                    onItemClick = {
-                    }
-                )
-            }
-        }
-    }
-}
 
 @Composable
 private fun SetHomeCard(
@@ -181,5 +108,37 @@ private fun SetHomeCard(
                 )
             }
         }
+    }
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview
+@Composable
+fun HomePreviewWithScafold() {
+    val nav = rememberNavController()
+    val ls = List(16, init = {
+        Orixa(
+            name = "Yemanjá",
+            imageUrl = "https://ocandomble.files.wordpress.com/2008/04/nana.jpg?w=216&h=300"
+
+        )
+    })
+
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    Scaffold(
+
+        modifier = Modifier.nestedScroll(
+            scrollBehavior.nestedScrollConnection
+        ),
+        topBar = {
+            OrixaSearchTopBar(scrollBehavior = scrollBehavior, onFilterClick = { ("nfgh")
+            })
+        },
+        containerColor = MaterialTheme.colorScheme.primary
+    ) { contentPadding ->
+        SetHomeCard(
+            modifier = Modifier.padding(top = contentPadding.calculateTopPadding()),
+            orixasList = ls,
+            navController = nav
+        )
     }
 }
