@@ -8,12 +8,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -33,7 +35,10 @@ fun ItemOrixa(
 ) {
     Card(
         modifier = Modifier
-            .clickable { onItemClick(orixaInfo.name) }
+            .clickable { onItemClick(orixaInfo.name) },
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.secondary,
+        )
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -48,7 +53,7 @@ fun ItemOrixa(
             Text(
                 text = orixaInfo.name,
                 style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.secondary,
+                color = Color.White,
                 modifier = modifier.padding(top = 8.dp)
             )
         }
@@ -98,7 +103,7 @@ fun ItemOrixasPreview() {
             Text(
                 text = stringResource(R.string.nana),
                 style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.secondary,
+                color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(top = 8.dp)
             )
         }
