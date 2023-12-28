@@ -45,7 +45,9 @@ fun DetailCard(
         }
     ) { paddingValues ->
         Card(
-            modifier = Modifier.padding(top = paddingValues.calculateTopPadding()),
+            modifier = Modifier
+                .padding(top = paddingValues.calculateTopPadding())
+                .fillMaxWidth(),
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondary),
             border = CardDefaults.outlinedCardBorder(false),
         ) {
@@ -83,7 +85,8 @@ private fun SetDetailOrixa(
 ) {
     val color = Color.White
     Box(
-        modifier = modifier
+        modifier = modifier,
+        contentAlignment = Alignment.TopCenter
 
     ) {
         Column(
@@ -91,6 +94,8 @@ private fun SetDetailOrixa(
             verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = modifier
                 .fillMaxHeight()
+                .padding(horizontal = 12.dp)
+                .padding(16.dp)
         ) {
             Spacer(modifier = modifier.padding(8.dp))
             OrixaImage(
