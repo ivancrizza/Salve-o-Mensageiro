@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -26,6 +27,7 @@ import androidx.navigation.NavController
 import com.example.salveomensageiro.data.Orixa
 import com.example.salveomensageiro.ui.viewmodel.OrixaViewmodelState
 import com.example.salveomensageiro.ui.viewmodel.OrixasViewmodel
+import org.w3c.dom.Text
 
 
 @Composable
@@ -84,6 +86,10 @@ private fun SetDetailOrixa(
     orixa: Orixa
 ) {
     val color = Color.White
+    val padding8Dp = Modifier.padding(top = 8.dp)
+    val styleLarge = MaterialTheme.typography.titleLarge
+    val styleBodyLarge = MaterialTheme.typography.bodyLarge
+    val textAlignCenter = TextAlign.Center
     Box(
         modifier = modifier,
         contentAlignment = Alignment.TopCenter
@@ -103,53 +109,74 @@ private fun SetDetailOrixa(
                 contentDescription = null,
                 modifier = modifier.size(220.dp)
             )
-            Text(
-                text = orixa.name,
-                style = MaterialTheme.typography.titleLarge,
+            OrixaText(
+                orixa.name,
+                modifier = padding8Dp,
                 color = color,
-                modifier = modifier.padding(top = 8.dp),
-                textAlign = TextAlign.Center
+                style = styleLarge,
+                textAlign = textAlignCenter
             )
-            Text(
-                text = orixa.day,
-                modifier.padding(top = 8.dp),
-                textAlign = TextAlign.Center,
+            OrixaText(
+                orixa.day,
+                modifier = padding8Dp,
                 color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
             )
-            Text(
-                text = orixa.color,
-                modifier.padding(top = 8.dp),
-                textAlign = TextAlign.Center,
+            OrixaText(
+                orixa.color,
+                modifier = padding8Dp,
                 color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
             )
-            Text(
-                text = orixa.symbols,
-                modifier.padding(top = 8.dp),
-                textAlign = TextAlign.Center,
+            OrixaText(
+                orixa.symbols,
+                modifier = padding8Dp,
                 color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
             )
-            Text(
-                text = orixa.elements,
-                modifier.padding(top = 8.dp),
-                textAlign = TextAlign.Center,
+            OrixaText(
+                orixa.elements,
+                modifier = padding8Dp,
                 color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
             )
-            Text(
-                text = orixa.know,
-                modifier.padding(top = 8.dp),
-                textAlign = TextAlign.Center,
+            OrixaText(
+                orixa.know,
+                modifier = padding8Dp,
                 color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
             )
-            Text(
-                text = orixa.greetings,
-                modifier.padding(top = 8.dp),
-                textAlign = TextAlign.Center,
+            OrixaText(
+                orixa.greetings,
+                modifier = padding8Dp,
                 color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
             )
-
         }
     }
+}
 
+@Composable
+fun OrixaText(
+    name: String,
+    modifier: Modifier = Modifier,
+    color: Color,
+    style: TextStyle,
+    textAlign: TextAlign
+) {
+    Text(
+        text = name,
+        modifier = modifier,
+        color = color,
+        style = style,
+        textAlign = textAlign
+    )
 }
 
 
