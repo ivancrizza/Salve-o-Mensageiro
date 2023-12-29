@@ -18,7 +18,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,7 +26,6 @@ import androidx.navigation.NavController
 import com.example.salveomensageiro.data.Orixa
 import com.example.salveomensageiro.ui.viewmodel.OrixaViewmodelState
 import com.example.salveomensageiro.ui.viewmodel.OrixasViewmodel
-import org.w3c.dom.Text
 
 
 @Composable
@@ -180,7 +178,7 @@ fun OrixaText(
 }
 
 
-@Preview
+@Preview(name = "Detalhe do Orixa")
 @Composable
 fun DetailPreview() {
     val orixa = Orixa(
@@ -193,67 +191,81 @@ fun DetailPreview() {
         know = "Domínios: Vida e Morte, Saúde e Maternidade",
         greetings = "Saudação: Salubá!"
     )
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = Modifier.padding(8.dp)
-    ) {
-        Spacer(modifier = Modifier.padding(8.dp))
-        OrixaImage(
-            imageUrl = orixa.imageUrl,
-            contentDescription = null,
-            modifier = Modifier.size(220.dp)
-        )
-        Text(
-            text = orixa.name,
-            style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center
-        )
-        Text(
-            text = orixa.day,
-            Modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixa.color,
-            Modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixa.symbols,
-            Modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixa.elements,
-            Modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixa.know,
-            Modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-        Text(
-            text = orixa.greetings,
-            Modifier.padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.secondary,
-        )
+    val modifier : Modifier = Modifier
+    val color = Color.White
+    val padding8Dp = Modifier.padding(top = 8.dp)
+    val styleLarge = MaterialTheme.typography.titleLarge
+    val styleBodyLarge = MaterialTheme.typography.bodyLarge
+    val textAlignCenter = TextAlign.Center
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.TopCenter
 
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = modifier
+                .fillMaxHeight()
+                .padding(horizontal = 12.dp)
+                .padding(16.dp)
+        ) {
+            Spacer(modifier = modifier.padding(8.dp))
+            OrixaImage(
+                imageUrl = orixa.imageUrl,
+                contentDescription = null,
+                modifier = modifier.size(220.dp)
+            )
+            OrixaText(
+                orixa.name,
+                modifier = padding8Dp,
+                color = color,
+                style = styleLarge,
+                textAlign = textAlignCenter
+            )
+            OrixaText(
+                orixa.day,
+                modifier = padding8Dp,
+                color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
+            )
+            OrixaText(
+                orixa.color,
+                modifier = padding8Dp,
+                color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
+            )
+            OrixaText(
+                orixa.symbols,
+                modifier = padding8Dp,
+                color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
+            )
+            OrixaText(
+                orixa.elements,
+                modifier = padding8Dp,
+                color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
+            )
+            OrixaText(
+                orixa.know,
+                modifier = padding8Dp,
+                color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
+            )
+            OrixaText(
+                orixa.greetings,
+                modifier = padding8Dp,
+                color = color,
+                style = styleBodyLarge,
+                textAlign = textAlignCenter
+            )
+        }
     }
 }
 
