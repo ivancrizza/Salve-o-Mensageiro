@@ -1,8 +1,8 @@
 package com.example.salveomensageiro.ui.view
 
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -10,11 +10,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,43 +30,87 @@ fun OrixaSearchTopBar(
     onFilterClick: (String) -> Unit,
 ) {
     val searchText = remember { mutableStateOf("") }
+    var showTextField by remember { mutableStateOf(false) }
 
-    CenterAlignedTopAppBar(
-        title = { "Salve o Mensageiro" },
-        modifier = modifier,
-        actions = {
-            TextField(
-                singleLine = true,
-                value = searchText.value,
-                onValueChange = { searchText.value = it },
-                modifier = Modifier.weight(1f),
-                placeholder = { Text("Buscar", color = Color.White) },
-                trailingIcon = {
-                    IconButton(onClick = { onFilterClick(searchText.value) }) {
+    Row {
+
+        TopAppBar(
+            title = {
+                Row(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = "Salve o Mensageiro",
+                        color = Color.White,
+                        maxLines = 1
+                    )
+                }
+            },
+            modifier = modifier,
+            actions = {
+                if (showTextField) {
+                    TextField(
+                        singleLine = true,
+                        value = searchText.value,
+                        onValueChange = { searchText.value = it },
+                        modifier = Modifier.weight(1f),
+                        placeholder = { Text("Buscar", color = Color.White) },
+                        trailingIcon = {
+                            IconButton(onClick = { onFilterClick(searchText.value) }) {
+                                Icon(
+                                    Icons.Default.Search, contentDescription = "Buscar",
+                                    tint = Color.White
+                                )
+                            }
+                        },
+                        colors = TextFieldDefaults.colors(
+                            unfocusedTextColor = Color.White,
+                            focusedTextColor = Color.White,
+                            disabledContainerColor = MaterialTheme.colorScheme.secondary,
+                            unfocusedContainerColor = MaterialTheme.colorScheme.secondary,
+                            focusedContainerColor = MaterialTheme.colorScheme.secondary
+                        )
+                    )
+                } else {
+                    IconButton(onClick = { showTextField = true }) {
                         Icon(
                             Icons.Default.Search, contentDescription = "Buscar",
                             tint = Color.White
                         )
                     }
-                },
-                colors = TextFieldDefaults.colors(
-                    unfocusedTextColor = Color.White,
-                    focusedTextColor = Color.White,
-                    disabledContainerColor = MaterialTheme.colorScheme.secondary,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.secondary,
-                    focusedContainerColor = MaterialTheme.colorScheme.secondary
-                )
+                }
+
+            },
+            scrollBehavior = scrollBehavior,
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = MaterialTheme.colorScheme.secondary,
+                titleContentColor = MaterialTheme.colorScheme.secondary
             )
-
-        },
-        scrollBehavior = scrollBehavior,
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.secondary,
-            titleContentColor = MaterialTheme.colorScheme.secondary
         )
-    )
-
+    }
 }
+//@Composable
+//fun MyTopAppBar() {
+//    var showTextField by remember { mutableStateOf(false) }
+//    var textState by remember { mutableStateOf("") }
+//
+//    TopAppBar(
+//        title = { Text("Nome do App") },
+//        actions = {
+//            if (showTextField) {
+//                TextField(
+//                    value = textState,
+//                    onValueChange = { textState = it },
+//                    modifier = Modifier.fillMaxWidth()
+//                )
+//            } else {
+//                IconButton(onClick = { showTextField = true }) {
+//                    Icon(Icons.Filled.Search, contentDescription = "Search")
+//                }
+//            }
+//        },
+//        backgroundColor = Color.Blue,
+//        contentColor = Color.White
+//    )
+//}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
