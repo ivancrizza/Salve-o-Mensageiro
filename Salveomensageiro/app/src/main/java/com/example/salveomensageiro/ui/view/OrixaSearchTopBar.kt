@@ -87,30 +87,6 @@ fun OrixaSearchTopBar(
         )
     }
 }
-//@Composable
-//fun MyTopAppBar() {
-//    var showTextField by remember { mutableStateOf(false) }
-//    var textState by remember { mutableStateOf("") }
-//
-//    TopAppBar(
-//        title = { Text("Nome do App") },
-//        actions = {
-//            if (showTextField) {
-//                TextField(
-//                    value = textState,
-//                    onValueChange = { textState = it },
-//                    modifier = Modifier.fillMaxWidth()
-//                )
-//            } else {
-//                IconButton(onClick = { showTextField = true }) {
-//                    Icon(Icons.Filled.Search, contentDescription = "Search")
-//                }
-//            }
-//        },
-//        backgroundColor = Color.Blue,
-//        contentColor = Color.White
-//    )
-//}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
