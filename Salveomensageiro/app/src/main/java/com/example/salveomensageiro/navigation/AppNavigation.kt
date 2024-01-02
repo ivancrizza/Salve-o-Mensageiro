@@ -36,7 +36,7 @@ fun AppNavigation(orixasViewmodel: OrixasViewmodel) {
             })
         ) { backStackEntry ->
             val index = backStackEntry.arguments?.getInt("index") ?: 0
-            DetailCard(orixasViewmodel, index = index)
+            DetailCard(orixasViewmodel, index = index, navController = navController)
         }
     }
 }

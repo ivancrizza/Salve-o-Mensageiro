@@ -1,6 +1,8 @@
 package com.example.salveomensageiro.ui.view
 
 import android.os.Bundle
+import android.view.WindowInsets
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,6 +23,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
             val jsonString = assets.open("mock/orixas.json").bufferedReader().use { it.readText() }
             val orixaRepository = OrixaRepositoryImpl(jsonString)
 
