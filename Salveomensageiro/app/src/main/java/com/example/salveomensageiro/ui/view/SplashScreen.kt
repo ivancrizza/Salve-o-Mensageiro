@@ -30,7 +30,7 @@ fun SplashScreen(navController: NavController) {
             contentDescription = "Logo da SplashScreen"
         )
         LaunchedEffect(key1 = true) {
-            delay(2000)
+            delay(1000)
             navController.navigate("orixasHome") {
                 popUpTo("splash_screen") { inclusive = true }
             }

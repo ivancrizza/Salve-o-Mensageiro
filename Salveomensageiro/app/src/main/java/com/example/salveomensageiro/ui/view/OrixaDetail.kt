@@ -1,5 +1,6 @@
 package com.example.salveomensageiro.ui.view
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -44,12 +45,11 @@ fun DetailCard(
             OrixaTopBar(title = orixaName, navController = navController)
         }
     ) { paddingValues ->
-        Card(
+        Box(
             modifier = Modifier
                 .padding(top = paddingValues.calculateTopPadding())
-                .fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondary),
-            border = CardDefaults.outlinedCardBorder(false),
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.secondary),
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -191,7 +191,7 @@ fun DetailPreview() {
         know = "Domínios: Vida e Morte, Saúde e Maternidade",
         greetings = "Saudação: Salubá!"
     )
-    val modifier : Modifier = Modifier
+    val modifier: Modifier = Modifier
     val color = Color.White
     val padding8Dp = Modifier.padding(top = 8.dp)
     val styleLarge = MaterialTheme.typography.titleLarge
