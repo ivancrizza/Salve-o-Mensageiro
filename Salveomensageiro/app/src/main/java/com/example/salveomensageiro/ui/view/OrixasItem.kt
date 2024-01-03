@@ -53,7 +53,7 @@ fun ItemOrixa(
             Text(
                 text = orixaInfo.name,
                 style = MaterialTheme.typography.labelLarge,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.tertiary,
                 modifier = modifier.padding(top = 8.dp)
             )
         }

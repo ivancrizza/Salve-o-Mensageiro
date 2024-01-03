@@ -32,14 +32,14 @@ fun OrixaTopBar(
             }) {
                 Icon(
                     Icons.Default.ArrowBack, contentDescription = "Voltar",
-                    tint = Color.White
+                    tint = MaterialTheme.colorScheme.tertiary
                 )
             }
         },
         title = {
             Text(
                 title,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.tertiary,
                 modifier = Modifier.padding(start = 8.dp)
             )
         },
