@@ -12,8 +12,8 @@ import androidx.core.view.WindowCompat
 
 
 private val LightColorScheme = lightColorScheme(
-    primary = RosaOrixa,
-    secondary = AzulOrixa,
+    primary = AzulOrixa,
+    secondary = RosaOrixa,
     tertiary = VermelhoOrixa
 
     /* Other default colors to override
