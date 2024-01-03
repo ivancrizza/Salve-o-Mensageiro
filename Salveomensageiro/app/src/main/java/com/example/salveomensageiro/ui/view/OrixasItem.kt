@@ -76,7 +76,7 @@ fun OrixaImage(
     )
     Image(
         painter = painter, contentDescription = contentDescription,
-        contentScale = ContentScale.Crop,
+        contentScale = ContentScale.Fit,
         modifier = modifier
             .fillMaxSize()
             .size(220.dp)

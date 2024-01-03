@@ -21,6 +21,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -45,15 +46,10 @@ fun OrixaSearchTopBar(
             title = {
                 Row(modifier = Modifier.weight(1f)) {
                     Image(
-                        contentScale = ContentScale.FillBounds,
+                        contentScale = ContentScale.Inside,
                         painter = painterResource(id = R.drawable.salvesalve),
                         contentDescription = "",
                     )
-//                    Text(
-//                        text = "Salve o Mensageiro",
-//                        color = Color.White,
-//                        maxLines = 1
-//                    )
                 }
             },
             modifier = modifier,
