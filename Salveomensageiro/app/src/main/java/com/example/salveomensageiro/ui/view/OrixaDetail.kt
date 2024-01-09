@@ -1,10 +1,14 @@
 package com.example.salveomensageiro.ui.view
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -18,15 +22,27 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.salveomensageiro.R
 import com.example.salveomensageiro.data.Orixa
 import com.example.salveomensageiro.ui.viewmodel.OrixaViewmodelState
 import com.example.salveomensageiro.ui.viewmodel.OrixasViewmodel
 
+enum class OrixaDetailType(val type: String) {
+    DIA("Dia: "),
+    COR("Cor: "),
+    SIMBOLO("Símbolos: "),
+    ELEMENTO("Elemento: "),
+    DOMINIO("Domínio: "),
+    SAUDACAO("Saudação: ")
+}
 
 @Composable
 fun DetailCard(
@@ -44,12 +60,11 @@ fun DetailCard(
             OrixaTopBar(title = orixaName, navController = navController)
         }
     ) { paddingValues ->
-        Card(
+        Box(
             modifier = Modifier
                 .padding(top = paddingValues.calculateTopPadding())
-                .fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondary),
-            border = CardDefaults.outlinedCardBorder(false),
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.secondary),
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -83,13 +98,15 @@ private fun SetDetailOrixa(
     modifier: Modifier = Modifier,
     orixa: Orixa
 ) {
-    val color = Color.White
+    val color = MaterialTheme.colorScheme.tertiary
     val padding8Dp = Modifier.padding(top = 8.dp)
     val styleLarge = MaterialTheme.typography.titleLarge
     val styleBodyLarge = MaterialTheme.typography.bodyLarge
     val textAlignCenter = TextAlign.Center
     Box(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxSize()
+            .padding(top = 8.dp),
         contentAlignment = Alignment.TopCenter
 
     ) {
@@ -107,50 +124,56 @@ private fun SetDetailOrixa(
                 contentDescription = null,
                 modifier = modifier.size(220.dp)
             )
-            OrixaText(
-                orixa.name,
+            Text(
+                text = orixa.name,
                 modifier = padding8Dp,
                 color = color,
                 style = styleLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.day,
+                title = OrixaDetailType.DIA.type,
+                name = orixa.day,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.color,
+                title = OrixaDetailType.COR.type,
+                name = orixa.color,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.symbols,
+                title = OrixaDetailType.SIMBOLO.type,
+                name = orixa.symbols,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.elements,
+                title = OrixaDetailType.ELEMENTO.type,
+                name = orixa.elements,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.know,
+                title = OrixaDetailType.DOMINIO.type,
+                name = orixa.know,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.greetings,
+                title = OrixaDetailType.SAUDACAO.type,
+                name = orixa.greetings,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
@@ -162,19 +185,36 @@ private fun SetDetailOrixa(
 
 @Composable
 fun OrixaText(
+    title: String = "",
     name: String,
     modifier: Modifier = Modifier,
     color: Color,
     style: TextStyle,
     textAlign: TextAlign
 ) {
-    Text(
-        text = name,
-        modifier = modifier,
-        color = color,
-        style = style,
-        textAlign = textAlign
-    )
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(end = 8.dp, start = 8.dp),
+        horizontalArrangement = Arrangement.Absolute.Center,
+        verticalAlignment = Alignment.Top
+    ) {
+        Text(
+            modifier = Modifier.weight(0.4f),
+            textAlign = TextAlign.Justify,
+            text = title,
+            fontWeight = FontWeight.Bold,
+            fontSize = 16.sp
+        )
+        Text(
+            text = name,
+            modifier = Modifier.weight(1f),
+            color = color,
+            style = style,
+            textAlign = TextAlign.Justify
+        )
+    }
+
 }
 
 
@@ -184,31 +224,27 @@ fun DetailPreview() {
     val orixa = Orixa(
         name = "Nanã",
         imageUrl = "https://ocandomble.files.wordpress.com/2008/04/nana.jpg?w=216&h=300",
-        day = "Dia: Terça-feira",
-        color = "Cores: Anil, Branco e Roxo",
-        symbols = "Símbolo: Bastão de hastes de palmeira (Ibiri)",
-        elements = "Elemento: Terra, Água, Lodo",
-        know = "Domínios: Vida e Morte, Saúde e Maternidade",
-        greetings = "Saudação: Salubá!"
+        day = "Terça-feira",
+        color = "Anil, Branco e Roxo",
+        symbols = "Bastão de hastes de palmeira (Ibiri)",
+        elements = "Terra, Água, Lodo",
+        know = "Vida e Morte, Saúde e Maternidade",
+        greetings = "Salubá!"
     )
-    val modifier : Modifier = Modifier
+    val modifier: Modifier = Modifier
     val color = Color.White
     val padding8Dp = Modifier.padding(top = 8.dp)
     val styleLarge = MaterialTheme.typography.titleLarge
     val styleBodyLarge = MaterialTheme.typography.bodyLarge
-    val textAlignCenter = TextAlign.Center
+    val textAlignCenter = TextAlign.Start
     Box(
-        modifier = modifier,
-        contentAlignment = Alignment.TopCenter
+        modifier = modifier
+            .fillMaxSize()
 
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = modifier
-                .fillMaxHeight()
-                .padding(horizontal = 12.dp)
-                .padding(16.dp)
         ) {
             Spacer(modifier = modifier.padding(8.dp))
             OrixaImage(
@@ -216,50 +252,57 @@ fun DetailPreview() {
                 contentDescription = null,
                 modifier = modifier.size(220.dp)
             )
-            OrixaText(
-                orixa.name,
+            Text(
+                text = orixa.name,
                 modifier = padding8Dp,
                 color = color,
                 style = styleLarge,
                 textAlign = textAlignCenter
             )
+            Spacer(modifier = modifier.padding(8.dp))
             OrixaText(
-                orixa.day,
+                title = OrixaDetailType.DIA.type,
+                name = orixa.day,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.color,
+                title = OrixaDetailType.COR.type,
+                name = orixa.color,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.symbols,
+                title = OrixaDetailType.SIMBOLO.type,
+                name = orixa.symbols,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.elements,
+                title = OrixaDetailType.ELEMENTO.type,
+                name = orixa.elements,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.know,
+                title = OrixaDetailType.DOMINIO.type,
+                name = orixa.know,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
                 textAlign = textAlignCenter
             )
             OrixaText(
-                orixa.greetings,
+                title = OrixaDetailType.SAUDACAO.type,
+                name = orixa.greetings,
                 modifier = padding8Dp,
                 color = color,
                 style = styleBodyLarge,
