@@ -11,6 +11,9 @@
 
 ## Sobre o Projeto
 Esse projeto naceu de um chamado, assim como todo mundo, em algum momento da vida, descobre um proposito, uma motivação para sua evolução. "Salve o mensageiro" é um projeto que visa o estudo sobre os Orixás, apresentando informações, imagens, dias, curiosidade e claro suas histórias. Esse projeto é uma semente para que possamos sempre lembrar, amar e celebrar os nossos orixas!!! Laroyê
+![image](https://github.com/ivancrizza/Salve-o-Mensageiro/assets/48035639/c0feda54-f1ef-4915-a187-dbc383283cf6)
+![image](https://github.com/ivancrizza/Salve-o-Mensageiro/assets/48035639/63eac5d0-049f-4dc0-adce-5c0cb8a4468c)
+
 
 ## Tecnologias Utilizadas
 Esse projeto está em sua fase de mock (-), portanto, as informações coletas foram feitas atraves de um pequeno estudo que fiz em Python sobre WebScrapping [aqui](https://github.com/ivancrizza/orixas-web-scraping). Todas as informações coletadas foram extraidas do [site](https://ocandomble.com/os-orixas/).
