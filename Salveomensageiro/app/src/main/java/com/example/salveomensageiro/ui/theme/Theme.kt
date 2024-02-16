@@ -12,9 +12,9 @@ import androidx.core.view.WindowCompat
 
 
 private val LightColorScheme = lightColorScheme(
-    primary = AzulOrixa,
+    primary = BackgroungCardBege,
     secondary = RosaOrixa,
-    tertiary = VermelhoOrixa
+    tertiary = DetailRedCard
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

@@ -14,6 +14,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,6 +24,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.salveomensageiro.data.Orixa
 import com.example.salveomensageiro.ui.viewmodel.OrixaViewmodelState
 import com.example.salveomensageiro.ui.viewmodel.OrixasViewmodel
+import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -84,6 +86,7 @@ private fun SetHomeCard(
     orixasList: List<Orixa>,
     navController: NavHostController
 ) {
+    val coroutineScope = rememberCoroutineScope()
     Column(
         modifier = modifier
             .fillMaxHeight()
@@ -95,7 +98,7 @@ private fun SetHomeCard(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier.padding(top = 16.dp)
         ) {
-            itemsIndexed(orixasList, key = { index, item ->
+            itemsIndexed(orixasList, key = { index, _ ->
                index
             }
             ) { index, item ->
@@ -103,7 +106,9 @@ private fun SetHomeCard(
                 ItemOrixa(
                     orixaInfo = orixaInfo,
                     onItemClick = {
+                        coroutineScope.launch {
                         navController.navigate("detailCard/${index}")
+                        }
                     }
                 )
             }

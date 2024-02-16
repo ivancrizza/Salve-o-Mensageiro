@@ -18,10 +18,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -62,9 +65,8 @@ fun DetailCard(
     ) { paddingValues ->
         Box(
             modifier = Modifier
-                .padding(top = paddingValues.calculateTopPadding())
-                .fillMaxWidth()
-                .background(MaterialTheme.colorScheme.secondary),
+                .padding(top = paddingValues.calculateTopPadding(), start = 6.dp, end = 6.dp, bottom = 6.dp)
+                .paint(painterResource(id = R.drawable.card_salve), contentScale = ContentScale.FillBounds)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -211,7 +213,7 @@ fun OrixaText(
             modifier = Modifier.weight(1f),
             color = color,
             style = style,
-            textAlign = TextAlign.Justify
+            textAlign = TextAlign.Start
         )
     }
 

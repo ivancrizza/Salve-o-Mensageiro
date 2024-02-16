@@ -43,6 +43,6 @@ fun OrixaTopBar(
                 modifier = Modifier.padding(start = 8.dp)
             )
         },
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.secondary),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primary),
     )
 }

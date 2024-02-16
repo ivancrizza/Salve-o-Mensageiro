@@ -1,7 +1,9 @@
 package com.example.salveomensageiro.data.response
 
+import androidx.compose.runtime.Immutable
 import com.google.gson.annotations.SerializedName
 
+@Immutable
 data class OrixaResponse(
     @SerializedName("título") val title: String = "",
     @SerializedName("imagem") val image: String = "",
