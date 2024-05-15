@@ -89,6 +89,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
+    implementation(libs.androidx.compose.google.font)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
