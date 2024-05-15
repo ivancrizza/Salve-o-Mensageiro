@@ -2,8 +2,7 @@ package com.example.salveomensageiro.ui.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,8 +25,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.salveomensageiro.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,60 +40,59 @@ fun OrixaSearchTopBar(
     val searchText = remember { mutableStateOf("") }
     var showTextField by remember { mutableStateOf(false) }
 
-    Row {
-
-        TopAppBar(
-            title = {
-                Row(modifier = Modifier.weight(1f)) {
-                    Image(
-                        contentScale = ContentScale.Inside,
-                        painter = painterResource(id = R.drawable.salvesalve),
-                        contentDescription = "",
+    TopAppBar(
+        title = {
+            if (showTextField) {
+                TextField(
+                    singleLine = true,
+                    value = searchText.value,
+                    onValueChange = { searchText.value = it },
+                    placeholder = { Text("Buscar", color = Color.White) },
+                    trailingIcon = {
+                        IconButton(onClick = { onFilterClick(searchText.value) }) {
+                            Icon(
+                                Icons.Default.Search, contentDescription = "Buscar",
+                                tint = Color.White
+                            )
+                        }
+                    },
+                    colors = TextFieldDefaults.colors(),
+                    modifier = Modifier.fillMaxWidth()
+                )
+            } else {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(text = "Salve o Mensageiro",
+                        fontFamily = FontFamily.Default
+                    )
+//                    Image(
+//                        contentScale = ContentScale.Inside,
+//                        painter = painterResource(id = R.drawable.salvesalve),
+//                        contentDescription = "",
+//                        modifier = Modifier.weight(1f)
+//                    )
+                }
+            }
+        },
+        modifier = modifier,
+        actions = {
+            if (!showTextField) {
+                IconButton(onClick = { showTextField = true }) {
+                    Icon(
+                        Icons.Default.Search, contentDescription = "Buscar",
+                        tint = Color.White
                     )
                 }
-            },
-            modifier = modifier,
-            actions = {
-                if (showTextField) {
-                    TextField(
-                        singleLine = true,
-                        value = searchText.value,
-                        onValueChange = { searchText.value = it },
-                        modifier = Modifier.weight(1f),
-                        placeholder = { Text("Buscar", color = Color.White) },
-                        trailingIcon = {
-                            IconButton(onClick = { onFilterClick(searchText.value) }) {
-                                Icon(
-                                    Icons.Default.Search, contentDescription = "Buscar",
-                                    tint = Color.White
-                                )
-                            }
-                        },
-                        colors = TextFieldDefaults.colors(
-                            unfocusedTextColor = Color.White,
-                            focusedTextColor = Color.White,
-                            disabledContainerColor = MaterialTheme.colorScheme.primary,
-                            unfocusedContainerColor = MaterialTheme.colorScheme.primary,
-                            focusedContainerColor = MaterialTheme.colorScheme.primary
-                        )
-                    )
-                } else {
-                    IconButton(onClick = { showTextField = true }) {
-                        Icon(
-                            Icons.Default.Search, contentDescription = "Buscar",
-                            tint = Color.White
-                        )
-                    }
-                }
-
-            },
-            scrollBehavior = scrollBehavior,
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-                titleContentColor = MaterialTheme.colorScheme.primary
-            )
+            }
+        },
+        scrollBehavior = scrollBehavior,
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            titleContentColor = Color.White
         )
-    }
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

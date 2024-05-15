@@ -39,7 +39,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -79,7 +80,6 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.gson)
     implementation(libs.compose.window)
-    implementation(libs.material)
     implementation(libs.material3)
     implementation(libs.retrofit2)
     implementation(libs.retrofit2.converter.gson)
