@@ -15,9 +15,14 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.googlefonts.Font
+import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.navOptions
+import com.example.salveomensageiro.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -25,6 +30,15 @@ fun OrixaTopBar(
     title: String,
     navController: NavController
 ) {
+    val font = GoogleFont("Bebas Neue")
+    val provider = GoogleFont.Provider(
+        providerAuthority = "com.google.android.gms.fonts",
+        providerPackage = "com.google.android.gms",
+        certificates = R.array.com_google_android_gms_fonts_certs
+    )
+    val fontFamily = FontFamily(
+        Font(googleFont = font, fontProvider = provider)
+    )
     TopAppBar(
         navigationIcon = {
             IconButton(onClick = {
@@ -39,9 +53,11 @@ fun OrixaTopBar(
         title = {
             Text(
                 title,
-                color = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(start = 8.dp)
+                fontFamily = fontFamily,
+                fontSize = 30.sp,
+                color = MaterialTheme.colorScheme.tertiary
             )
+
         },
         colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primary),
     )
