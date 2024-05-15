@@ -57,16 +57,24 @@ fun OrixaSearchTopBar(
                     singleLine = true,
                     value = searchText.value,
                     onValueChange = { searchText.value = it },
-                    placeholder = { Text("Buscar", color = Color.White) },
+                    placeholder = {
+                        Text(
+                            "Buscar", color = MaterialTheme.colorScheme.tertiary
+                        )
+                    },
                     trailingIcon = {
                         IconButton(onClick = { onFilterClick(searchText.value) }) {
                             Icon(
                                 Icons.Default.Search, contentDescription = "Buscar",
-                                tint = Color.White
+                                tint = MaterialTheme.colorScheme.tertiary
                             )
                         }
                     },
-                    colors = TextFieldDefaults.colors(),
+                    colors = TextFieldDefaults.colors(
+                        focusedTextColor = MaterialTheme.colorScheme.tertiary,
+                        focusedContainerColor = MaterialTheme.colorScheme.primary,
+                        unfocusedContainerColor = MaterialTheme.colorScheme.primary
+                    ),
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 12.dp)
