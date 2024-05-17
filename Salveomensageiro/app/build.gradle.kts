@@ -1,4 +1,4 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
@@ -9,11 +9,12 @@ java {
         languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
+
 tasks.withType<JavaCompile> {
     options.isFork = true
     options.forkOptions.jvmArgs = listOf("--release", "17")
-
 }
+
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
         jvmTarget = "17"
@@ -21,8 +22,17 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 }
 
 android {
-    namespace = "com.example.salveomensageiro"
+    namespace = "br.com.salveomensageiro"
     compileSdk = 34
+
+    signingConfigs {
+        create("release") {
+            keyAlias = "novo_alias"
+            keyPassword = "Leona,321@"
+            storeFile = file("/Users/pizzacrizza/novo_keystore.jks")
+            storePassword = "Leona,321@"
+        }
+    }
 
     defaultConfig {
         applicationId = "com.example.salveomensageiro"
@@ -30,7 +40,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -38,28 +47,34 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
         jvmTarget = "17"
     }
+
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"

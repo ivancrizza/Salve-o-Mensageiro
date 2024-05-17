@@ -28,9 +28,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import br.com.salveomensageiro.R
 import br.com.salveomensageiro.ui.viewmodel.OrixaViewmodelState
 import br.com.salveomensageiro.ui.viewmodel.OrixasViewmodel
-import com.example.salveomensageiro.R
+
 
 enum class OrixaDetailType(val type: String) {
     DIA("Dia: "),

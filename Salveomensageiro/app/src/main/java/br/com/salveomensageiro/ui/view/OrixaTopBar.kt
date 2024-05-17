@@ -15,7 +15,8 @@ import androidx.compose.ui.text.googlefonts.Font
 import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.salveomensageiro.R
+import br.com.salveomensageiro.R
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

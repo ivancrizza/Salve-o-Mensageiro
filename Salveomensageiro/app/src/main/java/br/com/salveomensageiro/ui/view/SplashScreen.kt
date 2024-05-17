@@ -13,7 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
-import com.example.salveomensageiro.R
+import br.com.salveomensageiro.R
+
 import kotlinx.coroutines.delay
 
 @Composable

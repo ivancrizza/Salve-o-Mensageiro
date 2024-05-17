@@ -29,7 +29,8 @@ import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.salveomensageiro.R
+import br.com.salveomensageiro.R
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
