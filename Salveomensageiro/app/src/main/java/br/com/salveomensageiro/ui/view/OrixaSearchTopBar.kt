@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -38,6 +39,7 @@ fun OrixaSearchTopBar(
     modifier: Modifier = Modifier,
     scrollBehavior: TopAppBarScrollBehavior,
     onFilterClick: (String) -> Unit,
+    onResetClick: () -> Unit
 ) {
     val searchText = remember { mutableStateOf("") }
     var showTextField by remember { mutableStateOf(false) }
@@ -64,11 +66,23 @@ fun OrixaSearchTopBar(
                         )
                     },
                     trailingIcon = {
-                        IconButton(onClick = { onFilterClick(searchText.value) }) {
-                            Icon(
-                                Icons.Default.Search, contentDescription = "Buscar",
-                                tint = MaterialTheme.colorScheme.tertiary
-                            )
+                        Row {
+                            IconButton(onClick = { onFilterClick(searchText.value) }) {
+                                Icon(
+                                    Icons.Default.Search, contentDescription = "Buscar",
+                                    tint = MaterialTheme.colorScheme.tertiary
+                                )
+                            }
+                            IconButton(onClick = {
+                                searchText.value = ""
+                                onResetClick()
+                                showTextField = false
+                            }) {
+                                Icon(
+                                    Icons.Default.Close, contentDescription = "Reset",
+                                    tint = MaterialTheme.colorScheme.tertiary
+                                )
+                            }
                         }
                     },
                     colors = TextFieldDefaults.colors(
@@ -120,6 +134,7 @@ fun TopBarPreview() {
     OrixaSearchTopBar(
         modifier = Modifier,
         scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(),
-        onFilterClick = {})
+        onFilterClick = {},
+        onResetClick = {})
 
 }

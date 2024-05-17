@@ -1,5 +1,7 @@
 package br.com.salveomensageiro.ui.viewmodel
 
+import br.com.salveomensageiro.data.Orixa
+import br.com.salveomensageiro.data.mapper.OrixaMapper
 import br.com.salveomensageiro.data.repository.OrixaRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -10,30 +12,34 @@ class OrixasViewmodel(
     private val orixaRepository: OrixaRepository,
 ) : BaseOrixaViewmodel() {
     private val _state = MutableStateFlow<OrixaViewmodelState>(OrixaViewmodelState.InitialState)
-    val state: StateFlow<OrixaViewmodelState> = _state.asStateFlow()
-
+    val state: StateFlow<OrixaViewmodelState> = _state
+    private var originalOrixaList: List<Orixa> = listOf()
     init {
         getOrixas()
     }
 
-    fun getOrixas() {
+    private fun getOrixas() {
         launch {
             val orixasResponse = orixaRepository.getAllOrixas()
-            val orixa = br.com.salveomensageiro.data.mapper.OrixaMapper.convertResponseToModel(orixasResponse)
-            _state.value = OrixaViewmodelState.GetOrixas(orixa = orixa)
+            originalOrixaList = OrixaMapper.convertResponseToModel(orixasResponse)
+            _state.value = OrixaViewmodelState.GetOrixas(orixa = originalOrixaList)
         }
     }
 
+
+
     fun searchOrixaOnClick(search: String) {
         launch {
-            val orixasResponse = orixaRepository.getAllOrixas()
-            val orixa = br.com.salveomensageiro.data.mapper.OrixaMapper.convertResponseToModel(orixasResponse)
-            val filteredOrixa = searchOrixas(search = search, orixa = orixa)
+            val filteredOrixa = searchOrixas(search = search, orixa = originalOrixaList)
             _state.value = OrixaViewmodelState.GetOrixas(orixa = filteredOrixa)
         }
     }
 
-    private fun searchOrixas(search: String, orixa: List<br.com.salveomensageiro.data.Orixa>): List<br.com.salveomensageiro.data.Orixa> {
+    private fun searchOrixas(search: String, orixa: List<Orixa>): List<Orixa> {
         return orixa.filter { it.name.contains(search, ignoreCase = true) }
+    }
+
+    fun resetSearch() {
+        _state.value = OrixaViewmodelState.GetOrixas(orixa = originalOrixaList)
     }
 }

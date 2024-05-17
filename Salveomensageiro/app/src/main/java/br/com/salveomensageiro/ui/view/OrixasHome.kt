@@ -55,16 +55,17 @@ fun SetScafold(
     navController: NavHostController,
     orixasViewmodel: OrixasViewmodel
 ) {
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     Scaffold(
 
         modifier = modifier.nestedScroll(
             scrollBehavior.nestedScrollConnection
         ),
         topBar = {
-            OrixaSearchTopBar(scrollBehavior = scrollBehavior, onFilterClick = { searchText ->
+            OrixaSearchTopBar(scrollBehavior = scrollBehavior,
+                onFilterClick = { searchText ->
                 orixasViewmodel.searchOrixaOnClick(searchText)
-            })
+            }, onResetClick = { orixasViewmodel.resetSearch() })
         },
         containerColor = MaterialTheme.colorScheme.primary
     ) { contentPadding ->
@@ -75,7 +76,6 @@ fun SetScafold(
         )
     }
 }
-
 
 
 @Composable
@@ -97,7 +97,7 @@ private fun SetHomeCard(
             modifier = Modifier.padding(top = 16.dp)
         ) {
             itemsIndexed(orixasList, key = { index, _ ->
-               index
+                index
             }
             ) { index, item ->
                 val orixaInfo = br.com.salveomensageiro.data.Orixa(item.name, item.imageUrl)
@@ -105,7 +105,7 @@ private fun SetHomeCard(
                     orixaInfo = orixaInfo,
                     onItemClick = {
                         coroutineScope.launch {
-                        navController.navigate("detailCard/${index}")
+                            navController.navigate("detailCard/${index}")
                         }
                     }
                 )
@@ -113,6 +113,7 @@ private fun SetHomeCard(
         }
     }
 }
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
@@ -127,21 +128,5 @@ fun HomePreviewWithScafold() {
     })
 
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-    Scaffold(
 
-        modifier = Modifier.nestedScroll(
-            scrollBehavior.nestedScrollConnection
-        ),
-        topBar = {
-            OrixaSearchTopBar(scrollBehavior = scrollBehavior, onFilterClick = { ("nfgh")
-            })
-        },
-        containerColor = MaterialTheme.colorScheme.primary
-    ) { contentPadding ->
-        SetHomeCard(
-            modifier = Modifier.padding(top = contentPadding.calculateTopPadding()),
-            orixasList = ls,
-            navController = nav
-        )
-    }
 }
