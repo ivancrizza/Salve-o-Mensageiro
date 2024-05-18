@@ -35,7 +35,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.salveomensageiro"
+        applicationId = "br.com.salveomensageiro"
         minSdk = 33
         targetSdk = 34
         versionCode = 1

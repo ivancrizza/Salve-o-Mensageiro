@@ -11,6 +11,25 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keepclassmembers class * {
+    @com.google.gson.annotations.SerializedName <fields>;
+}
+
+-keepattributes Signature
+-keepattributes *Annotation*
+
+-keepclassmembers,allowobfuscation class * {
+    ** fromJson(...);
+    ** toJson(...);
+}
+
+-keep class com.google.gson.reflect.TypeToken {
+    <init>(java.lang.reflect.Type);
+}
+
+-keep class * extends com.google.gson.reflect.TypeToken {
+    <init>();
+}
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.

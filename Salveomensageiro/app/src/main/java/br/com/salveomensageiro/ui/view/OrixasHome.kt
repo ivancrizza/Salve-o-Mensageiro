@@ -21,6 +21,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import br.com.salveomensageiro.data.Orixa
+import br.com.salveomensageiro.domain.OrixaRepositoryImpl
 import br.com.salveomensageiro.ui.viewmodel.OrixaViewmodelState
 import br.com.salveomensageiro.ui.viewmodel.OrixasViewmodel
 import kotlinx.coroutines.launch
@@ -34,7 +36,7 @@ fun OrixasHome(
 ) {
     val orixas = orixasViewmodel.state.collectAsState().value
     when (val state = orixas) {
-        is OrixaViewmodelState.GetOrixas -> SetScafold(
+        is OrixaViewmodelState.GetOrixas -> SetScaffold(
             modifier = modifier,
             orixasList = state.orixa,
             navController = navController,
@@ -49,9 +51,9 @@ fun OrixasHome(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SetScafold(
+fun SetScaffold(
     modifier: Modifier = Modifier,
-    orixasList: List<br.com.salveomensageiro.data.Orixa>,
+    orixasList: List<Orixa>,
     navController: NavHostController,
     orixasViewmodel: OrixasViewmodel
 ) {
@@ -64,8 +66,8 @@ fun SetScafold(
         topBar = {
             OrixaSearchTopBar(scrollBehavior = scrollBehavior,
                 onFilterClick = { searchText ->
-                orixasViewmodel.searchOrixaOnClick(searchText)
-            }, onResetClick = { orixasViewmodel.resetSearch() })
+                    orixasViewmodel.searchOrixaOnClick(searchText)
+                }, onResetClick = { orixasViewmodel.resetSearch() })
         },
         containerColor = MaterialTheme.colorScheme.primary
     ) { contentPadding ->
@@ -81,7 +83,7 @@ fun SetScafold(
 @Composable
 private fun SetHomeCard(
     modifier: Modifier,
-    orixasList: List<br.com.salveomensageiro.data.Orixa>,
+    orixasList: List<Orixa>,
     navController: NavHostController
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -100,7 +102,7 @@ private fun SetHomeCard(
                 index
             }
             ) { index, item ->
-                val orixaInfo = br.com.salveomensageiro.data.Orixa(item.name, item.imageUrl)
+                val orixaInfo = Orixa(item.name, item.imageUrl)
                 ItemOrixa(
                     orixaInfo = orixaInfo,
                     onItemClick = {
@@ -115,18 +117,32 @@ private fun SetHomeCard(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun HomePreviewWithScafold() {
+fun HomePreviewCards() {
     val nav = rememberNavController()
     val ls = List(16, init = {
-        br.com.salveomensageiro.data.Orixa(
+        Orixa(
             name = "Yemanjá",
             imageUrl = "https://ocandomble.files.wordpress.com/2008/04/nana.jpg?w=216&h=300"
 
         )
     })
+    SetHomeCard(modifier = Modifier, ls, nav)
+}
 
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+@Preview
+@Composable
+private fun HomePreviewWithScaffold() {
+    val orixaRepository = OrixaRepositoryImpl("")
+    val viewmodel = OrixasViewmodel(orixaRepository = orixaRepository)
+    val nav = rememberNavController()
+    val ls = List(16, init = {
+        Orixa(
+            name = "Yemanjá",
+            imageUrl = "https://ocandomble.files.wordpress.com/2008/04/nana.jpg?w=216&h=300"
 
+        )
+    })
+    SetScaffold(modifier = Modifier, ls, nav, viewmodel)
 }
