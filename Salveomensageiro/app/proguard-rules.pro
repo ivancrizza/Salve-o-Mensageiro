@@ -31,10 +31,21 @@
     <init>();
 }
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Keep OrixaResponse class and its fields
+-keep class br.com.salveomensageiro.data.response.OrixaResponse { *; }
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Keep Gson related classes
+-keep class com.google.gson.** { *; }
+-keepattributes Signature
+
+# Keep all TypeToken classes
+-keep class com.google.gson.reflect.TypeToken { *; }
+-keep class * extends com.google.gson.reflect.TypeToken { *; }
+
+# Keep OrixaRepositoryImpl class
+-keep class br.com.salveomensageiro.domain.OrixaRepositoryImpl { *; }
+
+# Keep the specific JSON assets handling in MainActivity
+-keepclassmembers class br.com.salveomensageiro.ui.view.MainActivity {
+    void onCreate(android.os.Bundle);
+}

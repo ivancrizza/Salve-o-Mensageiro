@@ -16,6 +16,8 @@ import br.com.salveomensageiro.ui.theme.SalveOMensageiroTheme
 import br.com.salveomensageiro.ui.viewmodel.OrixasViewmodel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 class MainActivity : ComponentActivity() {
 
@@ -25,7 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
-            val jsonString = assets.open("mock/orixas.json").bufferedReader().use { it.readText() }
+            val jsonString = readJsonFromAssets("mock/orixas.json")
             val orixaRepository = OrixaRepositoryImpl(jsonString)
             viewmodel = OrixasViewmodel(orixaRepository = orixaRepository)
             SalveOMensageiroTheme {
@@ -38,7 +40,15 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    private fun readJsonFromAssets(fileName: String): String {
+        val inputStream = assets.open(fileName)
+        val bufferedReader = BufferedReader(InputStreamReader(inputStream))
+        return bufferedReader.use { it.readText() }
+    }
 }
+
+
 @Composable
 fun SetNavigation(orixasViewmodel: OrixasViewmodel) {
     AppNavigation(orixasViewmodel)
