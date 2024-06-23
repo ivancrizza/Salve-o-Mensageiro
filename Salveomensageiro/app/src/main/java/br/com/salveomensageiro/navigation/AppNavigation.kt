@@ -9,7 +9,6 @@ import androidx.navigation.navArgument
 import br.com.salveomensageiro.ui.view.DetailCard
 import br.com.salveomensageiro.ui.view.OrixasHome
 import br.com.salveomensageiro.ui.view.Screen
-import br.com.salveomensageiro.ui.view.SplashScreen
 import br.com.salveomensageiro.ui.viewmodel.OrixasViewmodel
 
 @Composable
@@ -17,13 +16,8 @@ fun AppNavigation(orixasViewmodel: OrixasViewmodel) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Screen.Splash.route
+        startDestination = Screen.Home.route
     ) {
-        composable(
-            route = "splashScreen"
-        ) {
-            SplashScreen(navController = navController)
-        }
         composable(
             route = Screen.Home.route
         ) {

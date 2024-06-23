@@ -25,11 +25,12 @@ navigation-compose = "2.7.7"
 compose-window = "1.2.1"
 run-time = "1.6.7"
 fonts-google = "1.6.7"
+splash = "1.0.1"
 
 [libraries]
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 androidx-compose-google-font = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "fonts-google" }
-androidx-ksp = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp"}
+androidx-ksp = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", name = "navigation-compose", version.ref = "navigation-compose" }
 coil-compose = { module = "io.coil-kt:coil-compose", name = "coil-compose", version.ref = "coil-compose" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -59,6 +60,7 @@ retrofit2 = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofi
 retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 androidx-window = { module = "androidx.window:window", version.ref = "androidx-window" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
+androidx-splash = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 
 
 [plugins]

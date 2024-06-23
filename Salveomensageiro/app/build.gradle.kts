@@ -36,10 +36,10 @@ android {
 
     defaultConfig {
         applicationId = "br.com.salveomensageiro"
-        minSdk = 33
+        minSdk = 28
         targetSdk = 34
-        versionCode = 4
-        versionName = "1.2"
+        versionCode = 5
+        versionName = "1.3"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -97,6 +97,7 @@ dependencies {
     implementation(libs.compose.window)
     implementation(libs.material3)
     implementation(libs.retrofit2)
+    implementation(libs.androidx.splash)
     implementation(libs.retrofit2.converter.gson)
     implementation(libs.okhttp3.logging.interceptor)
     implementation(libs.ui)

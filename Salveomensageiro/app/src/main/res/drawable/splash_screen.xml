@@ -4,6 +4,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/salve2" />
+            android:src="@drawable/salve_topbar"
+            android:scaleType="centerInside"/>
     </item>
 </layer-list>
