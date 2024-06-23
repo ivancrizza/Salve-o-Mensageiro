@@ -2,4 +2,13 @@
 <resources>
 
     <style name="Theme.SalveOMensageiro" parent="android:Theme.Material.Light.NoActionBar" />
+
+
+    <style name="Theme.SalveOMensageiro.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/backGround</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/salve2</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/white</item>
+        <item name="postSplashScreenTheme">@style/Theme.SalveOMensageiro</item>
+    </style>
+
 </resources>

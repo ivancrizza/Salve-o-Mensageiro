@@ -12,10 +12,43 @@
 #   public *;
 #}
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Gson configurations
+-keepclassmembers class * {
+    @com.google.gson.annotations.SerializedName <fields>;
+}
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+-keepattributes Signature
+-keepattributes *Annotation*
+
+-keepclassmembers,allowobfuscation class * {
+    ** fromJson(...);
+    ** toJson(...);
+}
+
+-keep class com.google.gson.reflect.TypeToken {
+    <init>(java.lang.reflect.Type);
+}
+
+-keep class * extends com.google.gson.reflect.TypeToken {
+    <init>();
+}
+
+# Keep all Gson related classes
+-keep class com.google.gson.** { *; }
+
+# Keep OrixaResponse class and its fields
+-keep class br.com.salveomensageiro.data.response.OrixaResponse { *; }
+
+# Keep the repository implementation
+-keep class br.com.salveomensageiro.domain.OrixaRepositoryImpl { *; }
+
+# Keep the specific JSON assets handling in MainActivity
+-keepclassmembers class br.com.salveomensageiro.ui.view.MainActivity {
+    void onCreate(android.os.Bundle);
+}
+
+# Keep Retrofit interfaces
+-keep interface br.com.salveomensageiro.data.api.** { *; }
+
+# Keep data classes used with Retrofit
+-keep class br.com.salveomensageiro.data.model.** { *; }
