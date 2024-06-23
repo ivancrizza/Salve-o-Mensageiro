@@ -1,4 +1,5 @@
-![salve_header](https://github.com/ivancrizza/Salve-o-Mensageiro/assets/48035639/66607249-8ec3-473f-af59-ffa10d8f2d00)
+![salve_header](https://github.com/ivancrizza/Salve-o-Mensageiro/assets/48035639/4141b943-a38c-45a1-af43-66c214718061)
+
 
 # Salve o Mensageiro
 - [Sobre o Projeto](#sobre-o-projeto)
@@ -11,8 +12,8 @@
 
 ## Sobre o Projeto
 Esse projeto naceu de um chamado, assim como todo mundo, em algum momento da vida, descobre um proposito, uma motivação para sua evolução. "Salve o mensageiro" é um projeto que visa o estudo sobre os Orixás, apresentando informações, imagens, dias, curiosidade e claro suas histórias. Esse projeto é uma semente para que possamos sempre lembrar, amar e celebrar os nossos orixas!!! Laroyê
-![image](https://github.com/ivancrizza/Salve-o-Mensageiro/assets/48035639/c0feda54-f1ef-4915-a187-dbc383283cf6)
-![image](https://github.com/ivancrizza/Salve-o-Mensageiro/assets/48035639/63eac5d0-049f-4dc0-adce-5c0cb8a4468c)
+![image](https://github.com/ivancrizza/Salve-o-Mensageiro/assets/48035639/b5acd99e-382f-4f0f-8679-6791e48b8bef)
+![image](https://github.com/ivancrizza/Salve-o-Mensageiro/assets/48035639/241f4a94-6723-4f23-8d78-154d72cfb329)
 
 
 ## Tecnologias Utilizadas
