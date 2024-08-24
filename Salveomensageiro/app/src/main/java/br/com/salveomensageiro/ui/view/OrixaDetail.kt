@@ -1,5 +1,6 @@
 package br.com.salveomensageiro.ui.view
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,10 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -28,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import br.com.salveomensageiro.R
+import br.com.salveomensageiro.data.Orixa
 import br.com.salveomensageiro.ui.viewmodel.OrixaViewmodelState
 import br.com.salveomensageiro.ui.viewmodel.OrixasViewmodel
 
@@ -61,15 +59,9 @@ fun DetailCard(
         Box(
             modifier = Modifier
                 .padding(
-                    top = paddingValues.calculateTopPadding(),
-                    start = 6.dp,
-                    end = 6.dp,
-                    bottom = 6.dp
+                    top = paddingValues.calculateTopPadding()
                 )
-                .paint(
-                    painterResource(id = R.drawable.card_salve),
-                    contentScale = ContentScale.FillBounds
-                )
+                .background(MaterialTheme.colorScheme.primary)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -101,7 +93,7 @@ fun OrixasDetailCard(
 @Composable
 private fun SetDetailOrixa(
     modifier: Modifier = Modifier,
-    orixa: br.com.salveomensageiro.data.Orixa
+    orixa: Orixa
 ) {
     val color = MaterialTheme.colorScheme.tertiary
     val padding8Dp = Modifier.padding(top = 8.dp)
@@ -226,7 +218,7 @@ fun OrixaText(
 @Preview(name = "Detalhe do Orixa", showBackground = true)
 @Composable
 fun DetailPreview() {
-    val orixa = br.com.salveomensageiro.data.Orixa(
+    val orixa = Orixa(
         name = "Nanã",
         imageUrl = "https://ocandomble.files.wordpress.com/2008/04/nana.jpg?w=216&h=300",
         day = "Terça-feira",
