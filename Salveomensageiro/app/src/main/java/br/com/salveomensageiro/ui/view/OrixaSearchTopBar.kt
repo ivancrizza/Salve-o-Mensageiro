@@ -128,7 +128,7 @@ fun OrixaSearchTopBar(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun TopBarPreview() {
     OrixaSearchTopBar(
